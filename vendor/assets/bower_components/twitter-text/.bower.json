@@ -1,0 +1,18 @@
+{
+  "name": "twitter-text",
+  "version": "1.9.0",
+  "main": [
+    "./twitter-text.js"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/twitter/twitter-text-js",
+  "_release": "1.9.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.9.0",
+    "commit": "523c0217162f1e1f9f0e7f508ddd6235c3e9bf1c"
+  },
+  "_source": "git://github.com/twitter/twitter-text-js.git",
+  "_target": "*",
+  "_originalSource": "twitter-text"
+}

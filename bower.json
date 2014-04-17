@@ -1,0 +1,11 @@
+{
+  "name": "satiisfy",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap-sass": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "twitter-text": "latest",
+    "momentjs": "latest"
+  }
+}
