@@ -1,0 +1,15 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title, placeholder: "Project title" %>
+    <%= f.input :subdomain, placeholder: "subdomain.satiisfy.com" %>
+    <%= f.input :description %>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to "Cancel", request.referer, class: "btn btn-link" %>
+  </div>
+<% end %>

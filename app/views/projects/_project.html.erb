@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to project.title, project %></h3>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="label label-default pull-right"><%= project.questions.count %></span>
+      <b>Questions:</b>
+    </li>
+    <li class="list-group-item">
+      <span class="label label-default pull-right"><%= project.impressionist_count %></span>
+      <b>Views:</b>
+    </li>
+    <li class="list-group-item">Conversation</li>
+
+    <li class="list-group-item">
+      <small>
+        <%= link_to 'Show', frontend_index_url(subdomain: project.subdomain), target: "_blank" %> ·
+        <%= link_to 'Edit', edit_project_path(project) %> ·
+        <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </small>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,32 @@
+<div class="list-group">
+  <% questions.each do |question| %>
+    <div class="list-question list-group-item searchable">
+      <div class="row">
+        <div class="col-sm-5">
+          <a href="<%= url_for project_question_path(question.project, question) %>">
+            <b><%= question.title %></b>
+          </a>
+        </div>
+        <div class="col-sm-7 text-right">
+          <div class="info hidden">
+            <span class="label label-default">
+              67 <i class="fa fa-comment"></i>
+            </span>
+          </div>
+          <div class="info">
+            <span class="label label-default">
+              <%= question.impressionist_count %>
+              <i class="fa fa-eye"></i>
+            </span>
+          </div>
+          <div class="info">
+            <small>
+              <%= link_to "Edit", edit_project_question_path(question.project, question) %> ·
+              <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

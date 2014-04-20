@@ -8,9 +8,25 @@
   </head>
   <body>
 
+    <header>
+      <%= render 'layouts/navbar' %>
+    </header>
+    
     <div class="container">
+      <%= render 'layouts/alerts' %>
       <%= yield %>
     </div>
+
+    <footer>
+      <div class="container text-right">
+        <hr>
+        <p>
+          <small>
+            by <a href="http://www.satiisfy.com" target="_blank">Satiisfy</a>
+          </small>
+        </p>
+      </div>
+    </footer>
 
   </body>
 </html>

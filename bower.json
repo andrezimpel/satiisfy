@@ -6,6 +6,7 @@
     "font-awesome": "latest",
     "jquery": "latest",
     "twitter-text": "latest",
-    "momentjs": "latest"
+    "momentjs": "latest",
+    "bootstrap-markdown": "latest"
   }
 }

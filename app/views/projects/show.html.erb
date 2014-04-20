@@ -1,0 +1,47 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active"><%= @project.title %></li>
+</ol>
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <% if @project.questions.first.present? %>
+      <%= render 'questions/list', questions: @project.questions %>
+      <%= link_to "Add Question", new_project_question_path(@project) %>
+    <% else %>
+      <br>
+      <br>
+      <p class="lead text-center"><%= link_to "Add a question", new_project_question_path(@project) %> now.</p>
+    <% end %>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @project.title %></h3>
+      </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item">
+          <b>Subdomain:</b> <%= @project.subdomain %>
+        </li>
+        <li class="list-group-item">
+          <span class="label label-default pull-right"><%= @project.impressionist_count %></span>
+          <b>Views:</b>
+        </li>
+        <li class="list-group-item hidden">
+          <b>Conversation:</b> 76
+        </li>
+        <li class="list-group-item">
+          <small>
+            <%= link_to 'Show', frontend_index_url(subdomain: @project.subdomain), target: "_blank" %> ·
+            <%= link_to 'Edit', edit_project_path(@project) %> ·
+            <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </small>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

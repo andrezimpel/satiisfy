@@ -1,0 +1,16 @@
+@import "bootstrap-sass/lib/bootstrap.scss";
+@import "bootstrap-markdown/css/bootstrap-markdown.min.css";
+@import "font-awesome/scss/font-awesome.scss";
+
+@import "questions";
+
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.panel-heading {
+  .form-group {
+    margin: 0;
+  }
+}

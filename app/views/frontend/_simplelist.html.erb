@@ -1,0 +1,7 @@
+<ul>
+  <% questions.each do |question| %>
+    <li>
+      <%= link_to question.title, frontend_question_path(question) %>
+    </li>
+  <% end %>
+</ul>

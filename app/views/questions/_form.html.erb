@@ -3,10 +3,12 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
+    <%= f.association :project, include_blank: false, selected: params[:project] %>
     <%= f.input :answer %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
+    <%= link_to "Cancel", request.referer, class: "btn btn-link" %>
   </div>
 <% end %>

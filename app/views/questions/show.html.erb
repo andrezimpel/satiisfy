@@ -1,14 +1,41 @@
-<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><%= link_to @question.project.title, @question.project%></li>
+  <li class="active"><%= @question.title %></li>
+</ol>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
-
-<p>
-  <strong>Answer:</strong>
-  <%= @question.answer %>
-</p>
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<div class="row">
+  <div class="col-sm-9">
+    <h1><%= @question.title %></h1>
+    <%= markdown(@question.answer) %>
+  </div>
+  <div class="col-sm-3">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h3 class="panel-title">Question Details</h3>
+      </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="pull-right"><%= link_to @question.project.title, @question.project %></span>
+          <b>Project:</b>
+        </li>
+        <li class="list-group-item">
+          <span class="label label-default pull-right"><%= @question.impressionist_count %></span>
+          <b>Views:</b>
+        </li>
+        <li class="list-group-item hidden">
+          <b>Conversation:</b> 76
+        </li>
+        <li class="list-group-item">
+          <small>
+            <%= link_to 'Show', frontend_question_url(@question, subdomain: @question.project.subdomain), target: '_blank' %> ·
+            <%= link_to 'Edit', edit_question_path(@question) %> ·
+            <%= link_to 'Delete', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </small>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
