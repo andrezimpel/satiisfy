@@ -35,7 +35,10 @@
           <b>Status:</b>
         </li>
         <li class="list-group-item">
-          <b>Subdomain:</b> <%= @project.subdomain %>
+          <span class="pull-right">
+            <%= @project.subdomain %>
+          </span>
+          <b>Subdomain:</b>
         </li>
         <li class="list-group-item">
           <span class="label label-default pull-right"><%= @project.impressionist_count %></span>

@@ -13,6 +13,7 @@ Satiisfy::Application.routes.draw do
   # backend
   scope ":account_id" do
     resources :accounts
+    resources :profiles
     resources :projects do
       resources :questions
     end
