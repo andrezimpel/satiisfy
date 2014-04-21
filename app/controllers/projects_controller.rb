@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @questions = @project.questions.order("title ASC")
   end
 
   # GET /projects/new

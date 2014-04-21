@@ -22,10 +22,6 @@
       <!-- List group -->
       <ul class="list-group">
         <li class="list-group-item">
-          <span class="pull-right"><%= link_to @question.project.title, @question.project %></span>
-          <b>Project:</b>
-        </li>
-        <li class="list-group-item">
           <span class="pull-right">
             <% if @question.active? %>
               active <i class="fa fa-check-square"></i>
@@ -34,6 +30,10 @@
             <% end %>
           </span>
           <b>Status:</b>
+        </li>
+        <li class="list-group-item">
+          <span class="pull-right"><%= link_to @question.project.title, @question.project %></span>
+          <b>Project:</b>
         </li>
         <li class="list-group-item">
           <span class="label label-default pull-right"><%= @question.impressionist_count %></span>

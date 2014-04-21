@@ -6,8 +6,8 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <% if @project.questions.first.present? %>
-      <%= render 'questions/list', questions: @project.questions %>
+    <% if @questions.first.present? %>
+      <%= render 'questions/list', questions: @questions %>
       <%= link_to "Add Question", new_project_question_path(@project) %>
     <% else %>
       <br>
@@ -24,6 +24,16 @@
       </div>
       <!-- List group -->
       <ul class="list-group">
+        <li class="list-group-item">
+          <span class="pull-right">
+            <% if @project.active? %>
+              active <i class="fa fa-check-square"></i>
+            <% else %>
+              inactive
+            <% end %>
+          </span>
+          <b>Status:</b>
+        </li>
         <li class="list-group-item">
           <b>Subdomain:</b> <%= @project.subdomain %>
         </li>
