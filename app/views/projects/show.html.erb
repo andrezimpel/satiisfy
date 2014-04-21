@@ -36,7 +36,7 @@
         </li>
         <li class="list-group-item">
           <small>
-            <%= link_to 'Show', frontend_index_url(subdomain: @project.subdomain), target: "_blank" %> ·
+            <%= link_to 'Show', frontend_index_url(subdomain: @project.subdomain, account_id: nil), target: "_blank" %> ·
             <%= link_to 'Edit', edit_project_path(@project) %> ·
             <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
           </small>

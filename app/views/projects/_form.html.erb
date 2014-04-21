@@ -1,6 +1,8 @@
 <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
 
+  <%= f.hidden_field :account_id, value: @current_account.id %>
+
   <div class="form-inputs">
     <%= f.input :title, placeholder: "Project title" %>
     <%= f.input :subdomain, placeholder: "subdomain.satiisfy.com" %>

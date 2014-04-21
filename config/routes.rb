@@ -1,5 +1,7 @@
 Satiisfy::Application.routes.draw do
 
+  resources :accounts
+
   # project frontend
   scope :constraints => lambda { |request| !Subdomain.match(request) } do
     get "/" => "frontend#index", as: "frontend_index"
@@ -11,15 +13,18 @@ Satiisfy::Application.routes.draw do
 
 
   # backend
-  resources :projects do
-    resources :questions
+  scope ":account_id" do
+    resources :projects do
+      resources :questions
+    end
   end
+  get "/:account_id/projects" => "projects#index", as: "satiisfy_root"
 
   resources :questions
   # scope :constraints => lambda { |request| Subdomain.match(request) } do
   # end
 
-  root to: redirect('/projects')
+  root to: redirect("/1/projects")
 end
 
 

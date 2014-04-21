@@ -6,8 +6,12 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1><%= @question.title %></h1>
-    <%= markdown(@question.answer) %>
+    <div class="bs-example">
+      <h4><%= @question.title %></h4>
+    </div>
+    <div class="highlight">
+      <%= markdown(@question.answer) %>
+    </div>
   </div>
   <div class="col-sm-3">
     <div class="panel panel-default">
@@ -30,7 +34,7 @@
         </li>
         <li class="list-group-item">
           <small>
-            <%= link_to 'Show', frontend_question_url(@question, subdomain: @question.project.subdomain), target: '_blank' %> ·
+            <%= link_to 'Show', frontend_question_url(@question, subdomain: @question.project.subdomain, account_id: nil), target: '_blank' %> ·
             <%= link_to 'Edit', edit_question_path(@question) %> ·
             <%= link_to 'Delete', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
           </small>
