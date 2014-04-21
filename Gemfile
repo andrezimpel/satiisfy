@@ -36,6 +36,7 @@ gem 'bower'
 gem 'simple_form', git: 'git@github.com:plataformatec/simple_form.git', :tag => 'v3.1.0.rc1'
 gem 'redcarpet'
 gem 'impressionist'
+gem 'devise'
 
 group :development do
   gem 'capistrano', '~> 3.0.0'
