@@ -1,8 +1,5 @@
 Satiisfy::Application.routes.draw do
 
-  devise_for :users
-  resources :accounts
-
   # project frontend
   scope :constraints => lambda { |request| !Subdomain.match(request) } do
     get "/" => "frontend#index", as: "frontend_index"
@@ -22,6 +19,16 @@ Satiisfy::Application.routes.draw do
   get "/:account_id/projects" => "projects#index", as: "satiisfy_root"
 
   resources :questions
+
+  # user and account stuff
+  resources :accounts
+  devise_for :users
+  as :user do
+    get "/signin" => "devise/sessions#new", as: "user_login"
+    get "/login" => redirect("signin")
+    delete "/signout" => "devise/sessions#destroy"
+  end
+
   # scope :constraints => lambda { |request| Subdomain.match(request) } do
   # end
 

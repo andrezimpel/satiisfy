@@ -1,7 +1,7 @@
 class FrontendController < ApplicationController
 
   before_filter :set_project
-  skip_filter :set_current_account
+  skip_filter :set_current_account, :authenticate_user!
 
   layout "frontend"
 
