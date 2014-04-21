@@ -36,9 +36,14 @@ class ApplicationController < ActionController::Base
       return @current_account
     end
 
+    # redirect to the user account if there is no account id
+    if current_user
+      return redirect_to satiisfy_root_path(current_user.account)
+    end
+
     # dont' raise the exception if we are in the devise stuff
     if !devise_controller?
-      raise "Account not found."
+      raise ActionController::RoutingError.new('Account not found.')
     end
   end
 

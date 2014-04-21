@@ -25,16 +25,16 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "Help", frontend_index_url(subdomain: "help"), target: "_blank" %>
+          <%= link_to "Help", frontend_index_url(subdomain: "help", account_id: nil), target: "_blank" %>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Andre Zimpel <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Edit Profile</a></li>
             <li class="divider"></li>
-            <li><a href="#">Manage Account</a></li>
+            <li><%= link_to "Edit Account", edit_account_path(@current_account) %></li>
             <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><%= link_to "Logout", destroy_user_session_path(account_id: nil), :method => :delete %></li>
           </ul>
         </li>
       </ul>

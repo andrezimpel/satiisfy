@@ -26,6 +26,16 @@
           <b>Project:</b>
         </li>
         <li class="list-group-item">
+          <span class="pull-right">
+            <% if @question.active? %>
+              active <i class="fa fa-check-square"></i>
+            <% else %>
+              inactive
+            <% end %>
+          </span>
+          <b>Status:</b>
+        </li>
+        <li class="list-group-item">
           <span class="label label-default pull-right"><%= @question.impressionist_count %></span>
           <b>Views:</b>
         </li>
@@ -34,7 +44,9 @@
         </li>
         <li class="list-group-item">
           <small>
-            <%= link_to 'Show', frontend_question_url(@question, subdomain: @question.project.subdomain, account_id: nil), target: '_blank' %> ·
+            <% if @question.active? %>
+              <%= link_to 'Show', frontend_question_url(@question, subdomain: @question.project.subdomain, account_id: nil), target: '_blank' %> ·
+            <% end %>
             <%= link_to 'Edit', edit_question_path(@question) %> ·
             <%= link_to 'Delete', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
           </small>

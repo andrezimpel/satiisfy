@@ -5,6 +5,9 @@
         <div class="col-sm-5">
           <a href="<%= url_for project_question_path(question.project, question) %>">
             <b><%= question.title %></b>
+            <% if question.active? %>
+              <i class="fa fa-check-square"></i>
+            <% end %>
           </a>
         </div>
         <div class="col-sm-7 text-right">

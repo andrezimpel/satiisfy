@@ -1,7 +1,12 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h3 class="panel-title"><%= link_to project.title, project %></h3>
+    <h3 class="panel-title">
+      <%= link_to project.title, project %>
+      <% if project.active? %>
+        <i class="fa fa-check-square"></i>
+      <% end %>
+    </h3>
   </div>
 
   <!-- List group -->
@@ -18,7 +23,9 @@
 
     <li class="list-group-item">
       <small>
-        <%= link_to 'Show', frontend_index_url(subdomain: project.subdomain), target: "_blank" %> ·
+        <% if project.active? %>
+          <%= link_to 'Show', frontend_index_url(subdomain: project.subdomain, account_id: nil), target: "_blank" %> ·
+        <% end %>
         <%= link_to 'Edit', edit_project_path(project) %> ·
         <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
       </small>

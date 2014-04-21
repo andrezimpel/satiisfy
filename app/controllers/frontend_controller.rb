@@ -29,6 +29,11 @@ class FrontendController < ApplicationController
 
   def set_project
     @project = Project.find_by(subdomain: request.subdomain)
+
     impressionist(@project)
+
+    if !@project.active?
+      raise ActionController::RoutingError.new('Project not found.')
+    end
   end
 end
