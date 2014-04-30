@@ -34,7 +34,7 @@
             <li class="divider"></li>
             <li><%= link_to "Edit Account", edit_account_path(@current_account) %></li>
             <li class="divider"></li>
-            <li><%= link_to "Logout", destroy_user_session_path(account_id: nil), :method => :delete %></li>
+            <li><%= link_to "Logout", destroy_user_session_path(), :method => :delete %></li>
           </ul>
         </li>
       </ul>

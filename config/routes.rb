@@ -24,12 +24,13 @@ Satiisfy::Application.routes.draw do
 
   # user and account stuff
   resources :accounts
-  devise_for :users
+  devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations" }
   as :user do
     get "/signin" => "devise/sessions#new", as: "user_login"
     get "/login" => redirect("signin")
     delete "/signout" => "devise/sessions#destroy"
   end
+  # match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
 
   # scope :constraints => lambda { |request| Subdomain.match(request) } do
   # end

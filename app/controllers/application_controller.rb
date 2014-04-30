@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-
   # current account
   before_filter :set_current_account
   def set_current_account

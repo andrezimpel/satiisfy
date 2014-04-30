@@ -4,6 +4,32 @@
   <div class="form-inputs">
     <%= f.input :firstname %>
     <%= f.input :lastname %>
+
+    <% if @profile.avatar %>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" src="<%= @profile.avatar(:thumb_square) %>" width="75">
+        </div>
+        <div class="media-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <%= f.input :avatar %>
+            </div>
+            <div class="col-sm-6">
+              <br>
+              <div class="checkbox disabled">
+                <label>
+                  <input name="profile[avatar_status]" disabled type="checkbox"> Remove Avatar
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    <% else %>
+      <%= f.input :avatar %>
+    <% end %>
   </div>
 
   <div class="form-actions">

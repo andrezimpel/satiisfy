@@ -1,0 +1,9 @@
+.wrapper {
+  @include make-row;
+}
+.sidebar {
+  @include make-sm-column(3);
+}
+.content {
+  @include make-sm-column(9);
+}

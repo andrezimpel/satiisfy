@@ -37,6 +37,8 @@ gem 'simple_form', git: 'git@github.com:plataformatec/simple_form.git', :tag => 
 gem 'redcarpet'
 gem 'impressionist'
 gem 'devise'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'devise_invitable'
 
 group :development do
   gem 'capistrano', '~> 3.0.0'
