@@ -29,4 +29,18 @@
 //= require bootstrap/js/affix
 
 //= require bootstrap-markdown/js/bootstrap-markdown.js
+
+//= require momentjs/moment.js
+//= require livestampjs/livestamp.js
+
+
+
+
+
+//= require main
+
+
+
+
+
 //= require_tree .

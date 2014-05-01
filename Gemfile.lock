@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/andrezimpel/userstamp.git
+  revision: 50a879a653efcf23d0b75e80f0401d659a83c0ef
+  specs:
+    userstamp (2.0.2)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 41da3a3c4c139964a9877c77220f94200d73c87a
   specs:
@@ -136,6 +142,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.4)
       sprockets-rails (~> 2.0.0)
+    rails-timeago (2.10.1)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     railties (4.0.4)
       actionpack (= 4.0.4)
       activesupport (= 4.0.4)
@@ -207,9 +216,11 @@ DEPENDENCIES
   paperclip!
   pry-rails
   rails (= 4.0.4)
+  rails-timeago
   redcarpet
   sass-rails (~> 4.0.2)
   sdoc
   simple_form!
   turbolinks
   uglifier (>= 1.3.0)
+  userstamp!

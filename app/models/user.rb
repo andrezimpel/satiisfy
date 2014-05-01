@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   belongs_to :account
   has_one :profile
 
+  
+  # userstamps
+  model_stamper
+
 
   # create profile after creating a user
   after_create :create_profile

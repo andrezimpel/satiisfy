@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # userstamps
+  include Userstamp
+
 
   # devise
   before_action :authenticate_user!

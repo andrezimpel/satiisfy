@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427105709) do
+ActiveRecord::Schema.define(version: 20140430180116) do
 
   create_table "accounts", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   create_table "impressions", force: true do |t|
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(version: 20140427105709) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   create_table "projects", force: true do |t|
@@ -64,6 +68,9 @@ ActiveRecord::Schema.define(version: 20140427105709) do
     t.text     "description"
     t.integer  "account_id"
     t.boolean  "active"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.integer  "accounts"
   end
 
   create_table "questions", force: true do |t|
@@ -73,6 +80,8 @@ ActiveRecord::Schema.define(version: 20140427105709) do
     t.datetime "updated_at"
     t.integer  "project_id"
     t.boolean  "active"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   create_table "users", force: true do |t|
@@ -96,6 +105,8 @@ ActiveRecord::Schema.define(version: 20140427105709) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
