@@ -17,13 +17,18 @@
     </div>
 
     <footer>
-      <div class="container text-right">
-        <hr>
-        <p>
-          <small>
-            by <a href="http://www.satiisfy.com" target="_blank">Satiisfy</a>
-          </small>
-        </p>
+      <div class="container">
+        <div class="footer-nav clearfix">
+          <div class="pull-left">
+            <%= link_to "Help", frontend_index_url(subdomain: "help", account_id: nil), target: "_blank" %>
+            <a href="#" class="">Privacy Policy</a>
+            <a href="#" class="">Terms of Service</a>
+          </div>
+
+          <div class="pull-right">
+            <a href="http://www.satiisfy.com" target="_blank">Satiisfy.com</a>
+          </div>
+        </div>
       </div>
     </footer>
 

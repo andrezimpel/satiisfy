@@ -14,6 +14,7 @@ Satiisfy::Application.routes.draw do
   scope ":account_id" do
     resources :accounts
     resources :profiles
+    resources :profiles, :path => 'members',  as: :members
     resources :projects do
       resources :questions
     end
@@ -30,10 +31,6 @@ Satiisfy::Application.routes.draw do
     get "/login" => redirect("signin")
     delete "/signout" => "devise/sessions#destroy"
   end
-  # match 'users/:id' => 'users#destroy', :via => :delete, :as => :delete_user
-
-  # scope :constraints => lambda { |request| Subdomain.match(request) } do
-  # end
 
   root 'projects#index'
 end

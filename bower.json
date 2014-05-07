@@ -8,6 +8,8 @@
     "twitter-text": "latest",
     "momentjs": "latest",
     "bootstrap-markdown": "latest",
-    "livestampjs": "latest"
+    "livestampjs": "latest",
+    "to-markdown": "latest",
+    "markdown": "latest"
   }
 }

@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.association :project, include_blank: false, selected: params[:project] %>
+    <%= f.association :project, collection: @current_account.projects, include_blank: false, selected: params[:project] %>
     <%= f.input :active %>
     <%= f.input :answer %>
   </div>

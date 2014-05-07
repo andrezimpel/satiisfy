@@ -29,6 +29,8 @@
 //= require bootstrap/js/affix
 
 //= require bootstrap-markdown/js/bootstrap-markdown.js
+//= require markdown/lib/markdown.js
+//= require to-markdown/src/to-markdown.js
 
 //= require momentjs/moment.js
 //= require livestampjs/livestamp.js
