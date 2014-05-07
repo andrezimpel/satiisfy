@@ -23,6 +23,10 @@ Satiisfy::Application.routes.draw do
 
   resources :questions
 
+  # signup
+  get "/signup" => "accounts#new", as: "signup"
+  get "/accounts/new" => redirect("/signup")
+
   # user and account stuff
   resources :accounts
   devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations" }

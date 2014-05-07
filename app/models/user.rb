@@ -7,9 +7,11 @@ class User < ActiveRecord::Base
   belongs_to :account
   has_one :profile
 
-  
+
   # userstamps
   model_stamper
+
+  accepts_nested_attributes_for :profile
 
 
   # create profile after creating a user

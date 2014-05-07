@@ -6,9 +6,15 @@
 </div>
 
 <div class="row">
-  <% @projects.each do |project| %>
-    <div class="col-sm-3">
-      <%= render 'project', project: project %>
-    </div>
-  <% end %>
+    <% if @projects.first.present? %>
+      <% @projects.each do |project| %>
+        <div class="col-sm-3">
+          <%= render 'project', project: project %>
+        </div>
+      <% end %>
+    <% else %>
+      <br>
+      <br>
+      <p class="lead text-center"><%= link_to "Add a project", new_project_path %> now.</p>
+    <% end %>
 </div>

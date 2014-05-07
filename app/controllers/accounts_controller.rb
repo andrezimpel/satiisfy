@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  skip_filter :authenticate_user!, :set_current_account, only: [:new, :create]
+  layout "devise", only: [:new, :create]
 
   # GET /accounts
   # GET /accounts.json
@@ -15,6 +17,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   def new
     @account = Account.new
+    @account.users.build
   end
 
   # GET /accounts/1/edit
@@ -28,7 +31,12 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+
+        # sign in user
+        user = @account.users.first
+        sign_in(:user, user)
+
+        format.html { redirect_to satiisfy_root_path(@account), notice: 'Welcome to Satiisfy!' }
         format.json { render action: 'show', status: :created, location: @account }
       else
         format.html { render action: 'new' }
@@ -69,6 +77,10 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:title)
+      params.require(:account).permit(:title, users_attributes: [:email, :password, :password_confirmation])
+    end
+
+    def user_params
+      params[:account].require(:users_attributes).permit(:email, :password, :password_confirmation)
     end
 end
