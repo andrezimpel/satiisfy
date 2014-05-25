@@ -2,33 +2,16 @@
 <html>
   <head>
     <title>Satiisfy</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "frontend/app", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "frontend/app", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= yield %>
 
-    <header>
-      <div class="container">
-        <h1><%= link_to @project.title, frontend_index_url(@project) %></h1>
-        <hr>
-      </div>
-    </header>
-    <div class="container">
-      <%= render 'layouts/alerts' %>
-      <%= yield %>
-    </div>
 
-    <footer>
-      <div class="container text-right">
-        <hr>
-        <p>
-          <small>
-            by <a href="http://www.satiisfy.com" target="_blank">Satiisfy</a>
-          </small>
-        </p>
-      </div>
-    </footer>
 
+
+    <%= render 'layouts/shared/footer' %>
   </body>
 </html>

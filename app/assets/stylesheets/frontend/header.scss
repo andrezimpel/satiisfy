@@ -1,0 +1,28 @@
+.header-wrapper {
+  @extend .container;
+  @extend .text-center;
+}
+
+.header-title {
+}
+.header-description {
+  background: green;
+  margin: 15px auto;
+  max-width: 80%;
+}
+.header-url {
+  margin-top: 15px;
+
+  a {
+    @extend .label;
+    background: rgba(black, 0.2);
+    font-weight: 400;
+  }
+}
+
+
+.project-index {
+  font-size: 18px;
+  height: 250px;
+  overflow: hidden;
+}

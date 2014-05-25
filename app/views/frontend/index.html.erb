@@ -1,5 +1,31 @@
-<p class="lead">
-  <%= @project.description %>
-</p>
+<header class="project-index">
+  <div class="header-wrapper">
+    <div class="header-id hidden">
+      <img src="http://placehold.it/400x400">
+    </div>
+    <div class="header-title">
+      <h1><%= @project.title %></h1>
+    </div>
+    <div class="header-description">
+      <%= @project.description %>
+    </div>
+    <div class="header-url">
+      <a href="#" target="_blank">www.satiisfy.com</a>
+    </div>
+  </div>
+</header>
 
-<%= render "simplelist", questions: @project.questions %>
+
+
+<div class="page">
+</div>
+
+
+
+
+
+
+
+
+
+<%#= render "simplelist", questions: @project.questions %>

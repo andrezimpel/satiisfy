@@ -1,0 +1,41 @@
+body {
+  background: #f7f7f7;
+}
+
+// wrappers
+.navbar-wrapper,
+.page-wrapper {
+  @include make-row;
+  margin: 0;
+}
+
+.navbar-sidebar,
+.page-sidebar {
+  @include make-sm-column(3);
+}
+
+.navbar-content,
+.page-content {
+  @include make-sm-column(9);
+}
+
+
+// sidebar
+.page-sidebar {
+  background: #252626;
+  bottom: 0;
+  color: white;
+  position: absolute;
+  top: 0;
+
+  a {
+    color: white;
+  }
+}
+.page-content {
+  @include make-sm-column-offset(3);
+}
+.page-sidebar,
+.page-content {
+  padding-top: 70px;
+}
