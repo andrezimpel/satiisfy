@@ -27,6 +27,7 @@
   @include truncate;
 
   border-bottom: 1px $grey-light solid;
+  font-weight: 400;
   padding: 8px 0;
   margin: 0 15px 5px 15px;
   width: auto;
@@ -61,8 +62,7 @@
 .project-actions {
   background: $grey-super-light;
   bottom: 0;
-  color: $grey-dark;
-  font-size: 13px;
+  color: $grey;
   left: 0;
   padding: 5px 10px;
   position: absolute;
