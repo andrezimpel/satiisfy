@@ -8,4 +8,7 @@ class Project < ActiveRecord::Base
   validates :description, presence: true
 
   is_impressionable
+
+  # filter active projects
+  scope :active, lambda { where(['active = 1']) } 
 end

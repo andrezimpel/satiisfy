@@ -1,34 +1,38 @@
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">
-    <h3 class="panel-title">
+<div class="project">
+  <div class="project-body">
+    <div class="project-title">
       <%= link_to project.title, project %>
-      <% if project.active? %>
-        <i class="fa fa-check-square"></i>
-      <% end %>
-    </h3>
-  </div>
-
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item">
-      <span class="label label-default pull-right"><%= project.questions.count %></span>
-      <b>Questions:</b>
-    </li>
-    <li class="list-group-item">
-      <span class="label label-default pull-right"><%= project.impressionist_count %></span>
-      <b>Views:</b>
-    </li>
-    <li class="list-group-item">Conversation</li>
-
-    <li class="list-group-item">
-      <small>
+      <div class="hidden">
         <% if project.active? %>
-          <%= link_to 'Show', frontend_index_url(subdomain: project.subdomain, account_id: nil), target: "_blank" %> ·
+          <i class="fa fa-check-square"></i>
         <% end %>
-        <%= link_to 'Edit', edit_project_path(project) %> ·
-        <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </small>
-    </li>
-  </ul>
+      </div>
+    </div>
+
+    <div class="project-description">
+      <%= project.description %>
+    </div>
+
+    <div class="project-stats">
+      <ul class="stats-bar">
+        <li>
+          <i class="fa fa-comment"></i> <%= project.questions.count %>
+        </li>
+        <li>
+          <i class="fa fa-eye"></i> <%= project.impressionist_count %>
+        </li>
+        <li>
+          <i class="fa fa-comments"></i> XXX
+        </li>
+      </ul>
+    </div>
+
+    <div class="project-actions">
+      <% if project.active? %>
+        <%= link_to 'Show', frontend_index_url(subdomain: project.subdomain, account_id: nil), target: "_blank" %> ·
+      <% end %>
+      <%= link_to 'Edit', edit_project_path(project) %> ·
+      <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
 </div>

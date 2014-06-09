@@ -7,23 +7,24 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
     <header>
       <%= render 'layouts/navbar' %>
     </header>
 
 
-    <section id="page" class="page-wrapper">
-      <aside class="page-sidebar">
-        <%= render 'layouts/backend/sidebar' %>
-      </aside>
-
-      <div class="page-content">
-        <%#= render 'layouts/alerts' %>
-        <%#= yield %>
-
-        <%#= render 'layouts/shared/footer' %>
+    <div class="wrapper">
+      <div class="page">
+        <div class="sidebar">
+          <%#= render 'layouts/backend/sidebar' %>
+          <%= yield "sidebar" %>
+        </div>
+        <div class="content">
+          <%= render 'layouts/alerts' %>
+          <%= yield %>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <%= render 'layouts/shared/footer' %>
   </body>
 </html>

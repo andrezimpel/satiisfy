@@ -1,41 +1,105 @@
 body {
-  background: #f7f7f7;
+  // background:#f1f1f1;
+  padding-top: 90px;
+
+  -webkit-font-smoothing: antialiased
 }
 
-// wrappers
-.navbar-wrapper,
-.page-wrapper {
+.wrapper {
+  @extend .container;
+}
+.page {
   @include make-row;
-  margin: 0;
 }
-
-.navbar-sidebar,
-.page-sidebar {
-  @include make-sm-column(3);
+.sidebar {
+  @include make-sm-column(2);
 }
-
-.navbar-content,
-.page-content {
-  @include make-sm-column(9);
+.content {
+  @include make-sm-column(10);
 }
 
 
-// sidebar
-.page-sidebar {
-  background: #252626;
-  bottom: 0;
-  color: white;
-  position: absolute;
-  top: 0;
 
-  a {
-    color: white;
+.page-header {
+  border-color: $grey-light;
+  margin-top: 0;
+
+  h1 {
+    font-weight: normal;
+    margin-top: 0;
+
+    small {
+      color: $grey;
+    }
   }
 }
-.page-content {
-  @include make-sm-column-offset(3);
-}
-.page-sidebar,
-.page-content {
-  padding-top: 70px;
-}
+
+
+
+// body {
+//   background: white;
+//   color: #6a6a6a;
+// }
+//
+//
+// // full size background
+// .full-background {
+//   background-size: cover;
+//   bottom: 0;
+//   left: 0;
+//   position: fixed;
+//   right: 0;
+//   top: 0;
+//   z-index: 1;
+//
+//   -webkit-filter: blur(20px);
+//   -webkit-transform: scale(1.2);
+// }
+//
+//
+//
+// // header
+// header {
+//   background: rgba(#232323, 0.9);
+//   color: #6a6a6a;
+//   height: 50px;
+//   position: relative;
+//   z-index: 2;
+//
+//   a {
+//     color: #6a6a6a;
+//
+//     &:hover {
+//       color: darken(#6a6a6a, 20%);
+//     }
+//   }
+// }
+//
+//
+//
+// // page
+// .page-wrapper {
+//   @extend .container;
+//
+//   position: relative;
+//   margin-top: 40px;
+//   z-index: 2;
+// }
+// .page {
+//   @include make-row;
+//
+//   background: rgba(#eee, 0.5);
+//   border-radius: 2px;
+//   box-shadow: 0 5px 5px rgba($black, 0.025),
+//               0 0px 35px rgba($black, 0.05);
+// }
+// .page-content {
+//   @include make-sm-column(10);
+//
+//   background: white;
+//   border-left: 1px solid rgba(#6a6a6a, 0.7);
+//   float: right !important;
+// }
+// .page-sidebar {
+//   @include make-sm-column(2);
+// }

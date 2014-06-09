@@ -1,0 +1,90 @@
+// dashboard
+.projects-wrapper {
+  @include make-row;
+}
+.project {
+  @include make-sm-column(6);
+  @include make-md-column(4);
+  @include make-lg-column(3);
+
+  display: block;
+}
+.project-body {
+  border: 1px $grey-light solid;
+  border-radius: 2px;
+  display: block;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 1px 3px rgba($black, 0.05);
+  }
+}
+
+
+.project-title {
+  @include truncate;
+
+  border-bottom: 1px $grey-light solid;
+  padding: 8px 0;
+  margin: 0 15px 5px 15px;
+  width: auto;
+
+  a {
+    color: $black;
+    font-size: 20px;
+  }
+}
+
+.project-description {
+  color: $grey;
+  height: 115px;
+  padding: 5px 15px;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.project-stats {
+  background: white;
+  bottom: 35px;
+  left: 0;
+  padding: 0 15px;
+  position: absolute;
+  right: 0;
+}
+
+.project-actions {
+  background: $grey-super-light;
+  bottom: 0;
+  color: $grey-dark;
+  font-size: 13px;
+  left: 0;
+  padding: 5px 10px;
+  position: absolute;
+  right: 0;
+
+  a {
+    color: $grey;
+    padding: 3px 5px;
+  }
+}
+
+
+
+.stats-bar {
+  color: $grey;
+  font-weight: 500;
+  list-style: none;
+  margin: 0 -10px;
+  padding: 5px 0;
+
+  li {
+    display: inline-block;
+    padding: 0 10px;
+  }
+}

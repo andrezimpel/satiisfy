@@ -1,20 +1,21 @@
 <div class="page-header">
-  <h1 class="page-header-title">Projects</h1>
-  <div class="page-header-actions">
-    <%= link_to 'New Project', new_project_path, class: "btn btn-primary" %>
-  </div>
+  <h1>Projects <small>(<%= @projects.active.count %>/<%= @projects.count %>)</small></h1>
 </div>
 
-<div class="row">
-    <% if @projects.first.present? %>
-      <% @projects.each do |project| %>
-        <div class="col-sm-3">
-          <%= render 'project', project: project %>
-        </div>
-      <% end %>
-    <% else %>
-      <br>
-      <br>
-      <p class="lead text-center"><%= link_to "Add a project", new_project_path %> now.</p>
+<% if @projects.first.present? %>
+  <div class="projects-wrapper">
+    <% @projects.each do |project| %>
+      <%= render 'project', project: project %>
     <% end %>
-</div>
+  </div>
+<% else %>
+  <p class="lead text-center"><%= link_to "Add a project", new_project_path %> now.</p>
+<% end %>
+
+
+
+
+
+<% content_for "sidebar" do %>
+  <%= link_to "<i class='fa fa-plus'></i> Add".html_safe, new_project_path, class: "btn btn-primary" %>
+<% end %>
