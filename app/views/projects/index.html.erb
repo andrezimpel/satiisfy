@@ -13,9 +13,13 @@
 <% end %>
 
 
+<div class="note-area">
+  <i class="fa fa-globe"></i> This project is live and published.
+</div>
+
 
 
 
 <% content_for "sidebar" do %>
-  <%= link_to "<i class='fa fa-plus'></i> Project".html_safe, new_project_path, class: "btn btn-primary" %>
+  <%= link_to "Add Project".html_safe, new_project_path, class: "btn btn-primary" %>
 <% end %>

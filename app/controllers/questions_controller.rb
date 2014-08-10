@@ -4,8 +4,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
-    redirect_to "/"
+    @project = Project.find(params[:project_id])
+    @questions = @project.questions.order("title ASC")
   end
 
   # GET /questions/1

@@ -2,9 +2,7 @@
   <div class="project-body">
     <div class="project-title">
       <%= link_to project.title, project %>
-      <% if project.active? %>
-        <i class="fa fa-check-square"></i>
-      <% end %>
+      <%= render 'shared/active', resource: project %>
     </div>
 
     <div class="project-description">

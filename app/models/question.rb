@@ -6,4 +6,7 @@ class Question < ActiveRecord::Base
   validates :answer, presence: true
 
   is_impressionable
+
+  # filter active projects
+  scope :active, lambda { where(['published_at IS NOT NULL']) }
 end

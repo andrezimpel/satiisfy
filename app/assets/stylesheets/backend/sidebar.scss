@@ -1,0 +1,15 @@
+.sidebar {
+  .btn {
+    @extend .btn-block;
+  }
+
+  > * {
+    display: block;
+    margin-bottom: $space-medium;
+  }
+
+  hr {
+    margin: $space-medium 0;
+  }
+
+}

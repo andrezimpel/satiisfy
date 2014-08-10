@@ -1,64 +1,19 @@
-<div class="page-header">
-  <h1><%= @question.project.title %></h1>
+<%= render 'projects/header', project: @question.project %>
+
+
+<h2><%= @question.title %></h2>
+
+
+<div class="question-answer highlight well">
+  <%= markdown(@question.answer) %>
 </div>
 
 
-<ol class="breadcrumb">
-  <li><a href="/">Home</a></li>
-  <li><%= link_to @question.project.title, @question.project%></li>
-  <li class="active"><%= @question.title %></li>
-</ol>
 
-<div class="row">
-  <div class="col-sm-9">
-    <div class="bs-example">
-      <h4><%= @question.title %></h4>
-    </div>
-    <div class="highlight">
-      <%= markdown(@question.answer) %>
-    </div>
-  </div>
-  <div class="col-sm-3">
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">
-        <h3 class="panel-title">Question Details</h3>
-      </div>
-      <!-- List group -->
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="pull-right">
-            <% if @question.active? %>
-              active <i class="fa fa-check-square"></i>
-            <% else %>
-              inactive
-            <% end %>
-          </span>
-          <b>Status:</b>
-        </li>
-        <li class="list-group-item">
-          <span class="pull-right"><%= link_to @question.project.title, @question.project %></span>
-          <b>Project:</b>
-        </li>
-        <li class="list-group-item">
-          <span class="label label-default pull-right"><%= @question.impressionist_count %></span>
-          <b>Views:</b>
-        </li>
-        <li class="list-group-item hidden">
-          <b>Conversation:</b> 76
-        </li>
-        <li class="list-group-item">
-          <small>
-            <% if @question.active? %>
-              <%= link_to 'Show', frontend_question_url(@question, subdomain: @question.project.subdomain, account_id: nil), target: '_blank' %> ·
-            <% end %>
-            <%= link_to 'Edit', edit_question_path(@question) %> ·
-            <%= link_to 'Delete', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </small>
-        </li>
-      </ul>
-    </div>
-
-    
-  </div>
-</div>
+<% content_for "sidebar" do %>
+  <%= link_to "Edit Question".html_safe, edit_project_question_path(@question.project, @question), class: "btn btn-primary" %>
+  <%#= link_to "Show Question".html_safe, frontend_question_path(@question), class: "btn btn-default" %>
+  <%= render "layouts/activity_box", resource: @question %>
+  <hr>
+  <%= link_to 'Delete', @question, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link-danger" %>
+<% end %>
