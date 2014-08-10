@@ -1,9 +1,9 @@
-<div class="alert alert-sm alert-info">
+<small>
   <% if resource.updater_id.present? %>
-    Updated by <span"alert-link"><%= resource.updater.fullname %></span>
-    <span data-livestamp="<%= resource.updated_at.to_i %>"></span>
+    Edited <span data-livestamp="<%= resource.updated_at.to_i %>"></span><br>
+    by <%= resource.updater.fullname %>
   <% else %>
-    Created by <span"alert-link"><%= resource.creator.fullname %></span>
-    <span data-livestamp="<%= resource.created_at.to_i %>"></span>
+    Created <span data-livestamp="<%= resource.created_at.to_i %>"></span><br>
+    by <%= resource.creator.fullname %>
   <% end %>
-</div>
+</small>

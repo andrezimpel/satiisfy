@@ -1,0 +1,51 @@
+.project-questions {
+}
+
+.question {
+  border-bottom: 1px $grey-light solid;
+  padding: 10px 0;
+  position: relative;
+
+  &:hover {
+    background: darken(white, 3%);
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    color: $text-color;
+  }
+}
+
+.question-title {
+  color: $text-color;
+  font-weight: bold;
+
+  a {
+    color: $text-color;
+    font-size: 16px;
+    padding: 5px 0;
+  }
+}
+.question-stats {
+  @media (min-width: $screen-sm) {
+    float: right;
+
+    .stats-bar {
+      padding: 0;
+    }
+  }
+}
+
+.question-title,
+.question-stats {
+  @media (min-width: $screen-sm) {
+    display: inline-block;
+  }
+}
+
+.question-actions {
+  float: right;
+}

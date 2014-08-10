@@ -1,5 +1,33 @@
-<div class="list-group">
+<% questions.each do |question| %>
+  <div class="question">
+    <div class="question-title">
+      <%= link_to question.title, project_question_path(question.project, question) %>
+    </div>
+
+    <div class="question-actions">
+      <%= link_to "Edit", edit_project_question_path(question.project, question) %> ·
+      <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+
+    <div class="question-stats">
+      <ul class="stats-bar">
+        <li>
+          <i class="fa fa-eye"></i> <%= question.impressionist_count %>
+        </li>
+        <li>
+          <i class="fa fa-heart"></i> XXX
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
+
+<div class="list-group hidden">
   <% questions.each do |question| %>
+
+
     <div class="list-question list-group-item searchable">
       <div class="row">
         <div class="col-sm-5">

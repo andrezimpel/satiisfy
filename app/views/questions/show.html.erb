@@ -1,3 +1,8 @@
+<div class="page-header">
+  <h1><%= @question.project.title %></h1>
+</div>
+
+
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
   <li><%= link_to @question.project.title, @question.project%></li>
@@ -54,6 +59,6 @@
       </ul>
     </div>
 
-    <%= render "layouts/activity_box", resource: @question %>
+    
   </div>
 </div>

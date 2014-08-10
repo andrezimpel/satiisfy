@@ -1,10 +1,30 @@
-<ol class="breadcrumb">
-  <li><a href="/">Home</a></li>
-  <li class="active"><%= @project.title %></li>
-</ol>
+<div class="page-header">
+  <h1><%= @project.title %></h1>
+</div>
+
+<div class="project-statusbar"></div>
+
+<% if @questions.first.present? %>
+  <div class="project-questions">
+    <%= render 'questions/list', questions: @questions %>
+  </div>
+<% else %>
+  <br>
+  <br>
+  <p class="lead text-center"><%= link_to "Add a question", new_project_question_path(@project) %> now.</p>
+<% end %>
 
 
-<div class="row">
+
+<% content_for "sidebar" do %>
+  <%= link_to "<i class='fa fa-plus'></i> Question".html_safe, new_project_question_path(@project), class: "btn btn-primary" %>
+  <br><br>
+  <%= render "layouts/activity_box", resource: @project %>
+<% end %>
+
+
+
+<div class="row hidden">
   <div class="col-sm-9">
     <% if @questions.first.present? %>
       <%= render 'questions/list', questions: @questions %>
@@ -59,6 +79,5 @@
       </ul>
     </div>
 
-    <%= render "layouts/activity_box", resource: @project %>
   </div>
 </div>
