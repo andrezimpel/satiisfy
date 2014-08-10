@@ -1,0 +1,15 @@
+<div class="question">
+  <div class="question-title">
+    <%= link_to question.title, project_question_path(question.project, question) %>
+    <%= render 'shared/active', resource: question %>
+  </div>
+
+  <div class="question-meta">
+    <span data-livestamp="<%= question.created_at.to_i %>"></span><br>
+  </div>
+
+  <div class="question-actions">
+    <%= link_to "Edit", edit_project_question_path(question.project, question) %>
+    <%= link_to "Delete", question, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

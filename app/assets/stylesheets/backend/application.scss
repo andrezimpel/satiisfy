@@ -1,19 +1,12 @@
 // colors
-
-$brand-primary: #569ef0;
-$black: #000;
-$grey-super-light: #f7f7f7;
-$grey-light: #e7e7e7;
-$grey: #999;
-$grey-dark: #444;
-
+@import "_variables";
 
 // import libs
 @import "bootstrap-sass/lib/bootstrap.scss";
 @import "../bootstrap-markdown/css/bootstrap-markdown.min.css";
 @import "font-awesome/scss/font-awesome.scss";
 
-@import "_variables";
+
 
 // import shared stuff
 @import "shared/mixins";
@@ -21,9 +14,11 @@ $grey-dark: #444;
 
 
 // layout
+@import "html";
 @import "layout";
 @import "navigations";
 @import "navbar";
+@import "sidebar";
 
 
 // resources
@@ -35,5 +30,13 @@ $grey-dark: #444;
 // overrides
 .btn {
   border-radius: 2px;
-  border-color: transparent;
+}
+.well {
+  background: $grey-super-light;
+  border-color: $grey-light;
+  box-shadow: none;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }

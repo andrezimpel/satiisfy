@@ -1,6 +1,17 @@
+// own
+$grey-super-light: #f7f7f7;
+$grey-light: #e7e7e7;
+$grey: #999;
+$grey-dark: #444;
+$black: #000;
+
+// vendor
+$brand-primary: #569ef0;
 $grid-gutter-width: 40px;
+$btn-default-border: $grey-light;
 
 
+// spacing
 $space: $grid-gutter-width;
 $space-medium: $space / 2;
 $space-small: $space / 4;
