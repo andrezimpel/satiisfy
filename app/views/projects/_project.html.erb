@@ -2,11 +2,9 @@
   <div class="project-body">
     <div class="project-title">
       <%= link_to project.title, project %>
-      <div class="hidden">
-        <% if project.active? %>
-          <i class="fa fa-check-square"></i>
-        <% end %>
-      </div>
+      <% if project.active? %>
+        <i class="fa fa-check-square"></i>
+      <% end %>
     </div>
 
     <div class="project-description">

@@ -10,5 +10,5 @@ class Project < ActiveRecord::Base
   is_impressionable
 
   # filter active projects
-  scope :active, lambda { where(['active = 1']) } 
+  scope :active, lambda { where(['active IS TRUE']) }
 end
