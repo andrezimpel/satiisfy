@@ -11,7 +11,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @questions = @project.questions.order("title ASC")
+    # @questions = @project.questions.order("title ASC")
+    redirect_to project_questions_path(@project)
   end
 
   # GET /projects/new

@@ -1,7 +1,13 @@
-.project-questions {
+.questions-listing {
+  .question:last-child {
+    border: none;
+  }
 }
 
+
 .question {
+  @include clearfix();
+
   border-bottom: 1px $grey-light solid;
   padding: 10px 0;
   position: relative;
@@ -9,26 +15,58 @@
   &:hover {
     background: darken(white, 3%);
 
-    a {
+    .question-title a {
       text-decoration: underline;
     }
   }
 
   a {
     color: $text-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
 .question-title {
+  @include make-sm-column(6);
+
   color: $text-color;
   font-weight: bold;
 
   a {
     color: $text-color;
-    font-size: 16px;
     padding: 5px 0;
   }
 }
+
+.question-meta {
+  @include make-sm-column(3);
+}
+
+.question-actions {
+  @include make-sm-column(3);
+  @extend .text-right;
+
+  a {
+    padding: 0 $space-mini;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .question-stats {
   @media (min-width: $screen-sm) {
     float: right;
@@ -44,8 +82,4 @@
   @media (min-width: $screen-sm) {
     display: inline-block;
   }
-}
-
-.question-actions {
-  float: right;
 }

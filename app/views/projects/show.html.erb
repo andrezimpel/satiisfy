@@ -1,8 +1,4 @@
-<div class="page-header">
-  <h1><%= @project.title %></h1>
-</div>
 
-<div class="project-statusbar"></div>
 
 <% if @questions.first.present? %>
   <div class="project-questions">
@@ -21,63 +17,3 @@
   <br><br>
   <%= render "layouts/activity_box", resource: @project %>
 <% end %>
-
-
-
-<div class="row hidden">
-  <div class="col-sm-9">
-    <% if @questions.first.present? %>
-      <%= render 'questions/list', questions: @questions %>
-      <%= link_to "Add Question", new_project_question_path(@project) %>
-    <% else %>
-      <br>
-      <br>
-      <p class="lead text-center"><%= link_to "Add a question", new_project_question_path(@project) %> now.</p>
-    <% end %>
-  </div>
-
-  <div class="col-sm-3">
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @project.title %></h3>
-      </div>
-      <!-- List group -->
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="pull-right">
-            <% if @project.active? %>
-              active <i class="fa fa-check-square"></i>
-            <% else %>
-              inactive
-            <% end %>
-          </span>
-          <b>Status:</b>
-        </li>
-        <li class="list-group-item">
-          <span class="pull-right">
-            <%= @project.subdomain %>
-          </span>
-          <b>Subdomain:</b>
-        </li>
-        <li class="list-group-item">
-          <span class="label label-default pull-right"><%= @project.impressionist_count %></span>
-          <b>Views:</b>
-        </li>
-        <li class="list-group-item hidden">
-          <b>Conversation:</b> 76
-        </li>
-        <li class="list-group-item">
-          <small>
-            <% if @project.active? %>
-              <%= link_to 'Show', frontend_index_url(subdomain: @project.subdomain, account_id: nil), target: "_blank" %> ·
-            <% end %>
-            <%= link_to 'Edit', edit_project_path(@project) %> ·
-            <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </small>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</div>

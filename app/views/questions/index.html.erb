@@ -1,46 +1,39 @@
-<h1>Questions</h1>
+<%= render "projects/header", project: @project %>
 
+<% unless @questions.empty? %>
 
-
-<%= render 'list', questions: @questions %>
-
-
-
-
-
-
-
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<h1>Listing questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Answer</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="questions-listing">
     <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.title %></td>
-        <td><%= markdown question.answer %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+
+      <div class="question">
+        <div class="question-title">
+          <%= link_to question.title, question %>
+          <% if question.active? %>
+            <i class="fa fa-globe"></i>
+          <% end %>
+        </div>
+
+        <div class="question-meta">
+          <span data-livestamp="<%= question.created_at.to_i %>"></span><br>
+        </div>
+
+        <div class="question-actions">
+          <%= link_to "Edit", edit_project_question_path(question.project, question) %>
+          <%= link_to "Delete", question, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+
+
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+<% else %>
+  <p class="lead">This project is empty. <%= link_to "Add", new_project_question_path(@project) %> a Question now.</p>
+<% end %>
 
-<%= link_to 'New Question', new_question_path %>
+<% content_for "sidebar" do %>
+  <%= link_to "<i class='fa fa-plus'></i> Question".html_safe, new_project_question_path(@project), class: "btn btn-primary" %>
+  <br><br>
+  <%= render "layouts/activity_box", resource: @project %>
+<% end %>

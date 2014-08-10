@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430180116) do
+ActiveRecord::Schema.define(version: 20140810101843) do
 
   create_table "accounts", force: true do |t|
     t.string   "title"
@@ -82,7 +82,10 @@ ActiveRecord::Schema.define(version: 20140430180116) do
     t.boolean  "active"
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.datetime "published_at"
   end
+
+  add_index "questions", ["published_at"], name: "index_questions_on_published_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

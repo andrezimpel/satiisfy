@@ -13,6 +13,7 @@ $grey-dark: #444;
 @import "../bootstrap-markdown/css/bootstrap-markdown.min.css";
 @import "font-awesome/scss/font-awesome.scss";
 
+@import "_variables";
 
 // import shared stuff
 @import "shared/mixins";
