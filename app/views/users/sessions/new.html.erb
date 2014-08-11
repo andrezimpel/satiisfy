@@ -10,7 +10,7 @@
     <% if devise_mapping.rememberable? %>
       <div class="checkbox">
         <label>
-          <%= f.input :remember_me, :as => :boolean, label: false %> Remember me
+          <%= f.input :remember_me, :as => :boolean, label: false, input_html: { checked: "checked" } %> Remember me
         </label>
       </div>
     <% end %>
