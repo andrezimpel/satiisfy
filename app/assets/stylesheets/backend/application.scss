@@ -10,11 +10,11 @@
 
 // import shared stuff
 @import "shared/mixins";
+@import "shared/html";
 @import "shared/footer";
 
-
 // layout
-@import "html";
+
 @import "layout";
 @import "navigations";
 @import "navbar";
@@ -24,19 +24,3 @@
 // resources
 @import "projects";
 @import "questions";
-
-
-
-// overrides
-.btn {
-  border-radius: 2px;
-}
-.well {
-  background: $grey-super-light;
-  border-color: $grey-light;
-  box-shadow: none;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-}

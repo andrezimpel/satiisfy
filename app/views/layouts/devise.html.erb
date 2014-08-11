@@ -2,35 +2,30 @@
 <html>
   <head>
     <title>Satiisfy</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "devise", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body  class="devise">
 
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col-sm-6 col-sm-push-3">
-
-          <header>
-            <h1>Satiisfy</h1>
-          </header>
-
-          <div class="page">
-            <%= render 'layouts/alerts' %>
-            <%= yield %>
-          </div>
+    <div class="wrapper">
+      <div class="page">
+        <div class="sidebar">
+          <%= yield "sidebar" %>
+        </div>
+        <div class="content">
+          <%= render 'layouts/alerts' %>
+          <%= yield %>
 
           <footer>
-            <div class="text-right">
-              <hr>
-              <p>
-                <small>
-                  by <a href="http://www.satiisfy.com" target="_blank">Satiisfy</a>
-                </small>
-              </p>
+            <div class="footer-nav clearfix">
+              <div class="pull-left">
+                <%= render "users/shared/links" %>
+              </div>
+
+              <div class="pull-right">
+                <a href="http://www.satiisfy.com" target="_blank">Satiisfy.com</a>
+              </div>
             </div>
           </footer>
         </div>

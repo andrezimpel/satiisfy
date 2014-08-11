@@ -29,10 +29,13 @@ Satiisfy::Application.routes.draw do
 
   # user and account stuff
   resources :accounts
-  devise_for :users, :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations" }
+  devise_for :users,
+              :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations" },
+              :path => "",
+              :path_names => {:sign_in => 'login', :sign_up => "signup", :sign_out => 'logout'}
   as :user do
-    get "/signin" => "devise/sessions#new", as: "user_login"
-    get "/login" => redirect("signin")
+    get "/login" => "devise/sessions#new", as: "user_login"
+    get "/signin" => redirect("login")
     delete "/signout" => "devise/sessions#destroy"
   end
 

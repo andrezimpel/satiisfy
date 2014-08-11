@@ -1,20 +1,20 @@
 footer {
   font-size: 12px;
-  margin-top: 20px;
+  margin-top: $space-medium;
 
   .footer-nav {
     border-top: 1px solid $grey-light;
-    padding: 5px 0;
-    margin: 10px 0;
+    padding: $space-mini 0;
+    margin: $space-small 0;
 
     > div {
-      margin: 0 -15px;
+      margin: 0 (-$space-medium);
     }
 
     a {
       color: #999;
       display: inline-block;
-      padding: 5px 15px;
+      padding: $space-mini $space-medium;
     }
   }
 }
