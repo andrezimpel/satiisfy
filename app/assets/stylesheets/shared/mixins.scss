@@ -1,3 +1,19 @@
+// overrides
+.btn {
+  border-radius: 2px;
+}
+.well {
+  background: $grey-super-light;
+  border-color: $grey-light;
+  box-shadow: none;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// mixins
 @mixin truncate {
   width: 100%;
   white-space: nowrap;
@@ -6,6 +22,7 @@
 }
 
 
+// additional
 .btn-link-danger {
   @extend .btn-link;
 
