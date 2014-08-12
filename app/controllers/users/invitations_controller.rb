@@ -2,7 +2,7 @@ class Users::InvitationsController < Devise::InvitationsController
   after_filter :add_account_id, only: [:create]
   after_filter :add_person_information, only: [:update]
 
-  # layout "application"
+  layout "devise"
 
   def add_account_id
     self.resource.account_id = params[:account_id]

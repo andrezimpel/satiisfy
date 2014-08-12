@@ -3,11 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-
   # layout
   layout :layout_by_resource
   def layout_by_resource
-    if devise_controller?
+    if devise_controller? || params[:controller] == "users/invitations"
       "devise"
     else
       "application"
