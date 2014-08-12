@@ -14,6 +14,9 @@
           <%= yield "sidebar" %>
         </div>
         <div class="content">
+          <div class="page-header">
+            <%= yield "headline" %>
+          </div>
           <%= render 'layouts/alerts' %>
           <%= yield %>
 

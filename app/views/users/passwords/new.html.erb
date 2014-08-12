@@ -1,6 +1,6 @@
-<div class="page-header">
+<% content_for "headline" do %>
   <h3>Forgot your password?</h3>
-</div>
+<% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= f.error_notification %>

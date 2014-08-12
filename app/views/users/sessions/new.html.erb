@@ -1,6 +1,6 @@
-<div class="page-header">
+<% content_for "headline" do %>
   <h2>Sign in to <a href="/">Satiisfy</a></h2>
-</div>
+<% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="form-inputs">
