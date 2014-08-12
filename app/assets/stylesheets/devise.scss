@@ -1,0 +1,71 @@
+@import "backend/_variables";
+
+// import libs
+@import "bootstrap-sass/lib/bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
+
+
+
+// import shared stuff
+@import "shared/mixins";
+@import "shared/layout";
+@import "shared/html";
+@import "shared/footer";
+
+
+
+
+// styling
+body {
+  // background:#f1f1f1;
+  padding-top: 90px;
+
+  -webkit-font-smoothing: antialiased
+}
+
+.wrapper {
+  @extend .container;
+}
+.page {
+  @include make-row;
+}
+.content {
+  @include make-sm-column(6);
+  @include make-sm-column-push(3);
+
+  @include make-md-column(4);
+  @include make-md-column-push(4);
+}
+
+h1, h2, h3 {
+  @extend .text-center;
+  // margin-bottom: $space;
+}
+
+
+.btn {
+  @extend .btn-block;
+}
+
+
+
+// forms
+.devise {
+
+  .form-group,
+  .checkbox {
+    margin: 0 0 $space-medium 0;
+  }
+
+  input[type="password"],
+  input[type="email"],
+  input[type="text"] {
+    border-color: $grey-light;
+    border-radius: 2px;
+    box-shadow: none;
+    height: auto;
+    padding: 10px 16px;
+    min-height: 34px;
+  }
+
+}

@@ -21,10 +21,18 @@ class ApplicationController < ActionController::Base
   # devise
   before_action :authenticate_user!
 
-  # redirect after login
+  # store user login info in cookie for fast-login  & redirect after login
   def after_sign_in_path_for(resource)
-    satiisfy_root_path(current_user.account)
+    # cookies["satiisfy_user_id"] = {
+    #   :value => current_user.id,
+    #   :expires => 2.days.from_now
+    # }
+
+    super
+
+    # satiisfy_root_path(current_user.account)
   end
+
 
 
   # current account
