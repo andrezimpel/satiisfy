@@ -7,6 +7,10 @@ $black: #000;
 
 // vendor
 $brand-primary: #569ef0;
+$brand-info: $brand-primary;
+$alert-info-bg: lighten($brand-primary, 30%);
+$alert-info-border: $brand-primary;
+$alert-info-text: $brand-primary;
 $grid-gutter-width: 40px;
 $btn-default-border: $grey-light;
 

@@ -13,8 +13,11 @@ Satiisfy::Application.routes.draw do
   # backend
   scope ":account_id" do
     resources :accounts
+
     resources :profiles
+    # get "members/invite" => "users/invitations#new", as: "new_member_invitation"
     resources :profiles, :path => 'members',  as: :members
+
     resources :projects do
       resources :questions
     end

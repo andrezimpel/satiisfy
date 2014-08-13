@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # layout
   layout :layout_by_resource
   def layout_by_resource
-    if devise_controller? || params[:controller] == "users/invitations"
+    if devise_controller? && controller_name != "invitations"
       "devise"
     else
       "application"
