@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  default_scope { order('firstname ASC') }
+
   # userstamps
   model_stamper
 
@@ -28,14 +31,38 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
+  # inviteable stat
+  def status
+    return 'invited' if self.invitation_token
+    return 'active' if self.last_sign_in_at
+  end
+
+  def is_active?
+    if self.status  == "active"
+      return true
+    end
+    return false
+  end
+
+  def is_invited?
+    if self.status  == "invited"
+      return true
+    end
+    return false
+  end
+
+
   # get user "Name"
   def fullname
-    # if self.profile
-    #   if self.profile.firstname != nil && self.profile.lastname != nil
-    #     return self.profile.firstname + " " + self.profile.lastname
-    #   end
-    #   return self.email
-    # end
-    # return self.email
+    # return real fullname
+    if self.firstname != nil && self.lastname != nil
+      return self.firstname + " " + self.lastname
+    end
+
+    # return fristname if available
+    return self.firstname unless self.firstname == nil
+
+    # return email
+    return self.email
   end
 end

@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <%= navigation_li_link "Projects", projects_path() %>
-        <%= navigation_li_link "Members", members_path() %>
+        <%= navigation_li_link "Team", users_path() %>
       </ul>
       <form class="navbar-form navbar-left hidden" role="search">
         <div class="form-group">
@@ -30,7 +30,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.fullname %></a>
           <ul class="dropdown-menu">
-            <li><%#= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>
+            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
             <li class="divider hidden"></li>
             <li><%= link_to "Edit Account", edit_account_path(@current_account) %></li>
             <li class="divider"></li>

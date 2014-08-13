@@ -1,2 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="page-header">
+  <h1>
+    <%= @user.fullname %>
+    <% if @user.is_invited? %>
+      <small><span class="label label-default">invited</span></small>
+    <% end %>
+  </h1>
+</div>
+
+#
+
+
+<% content_for "sidebar" do %>
+  <img class="avatar" src="<%= @user.avatar %>" alt="<%= @user.fullname %>" title="<%= @user.fullname %>">
+<% end %>

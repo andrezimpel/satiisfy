@@ -1,0 +1,38 @@
+.users-listing {
+  @include make-row;
+}
+
+.users-listing-item {
+  @include make-sm-column(4);
+  @extend .media;
+
+  margin: 0 0 $space-medium 0;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  a {
+    display: block;
+    position: relative;
+
+    img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .label {
+      bottom: $space-mini;
+      left: 50%;
+      position: absolute;
+      margin-left: -23px;
+      z-index: 2;
+    }
+  }
+}
+
+
+.avatar {
+  border-radius: 5%;
+  max-width: 100%;
+}

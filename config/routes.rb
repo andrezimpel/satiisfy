@@ -1,10 +1,5 @@
 Satiisfy::Application.routes.draw do
 
-  get "users/index"
-  get "users/show"
-  get "users/edit"
-  get "users/update"
-  get "users/destroy"
   # project frontend
   scope :constraints => lambda { |request| !Subdomain.match(request) } do
     get "/" => "frontend#index", as: "frontend_index"
@@ -19,13 +14,18 @@ Satiisfy::Application.routes.draw do
   scope ":account_id" do
     resources :accounts
 
-    resources :profiles
-    # get "members/invite" => "users/invitations#new", as: "new_member_invitation"
-    resources :profiles, :path => 'members',  as: :members
-
     resources :projects do
       resources :questions
     end
+
+
+    # user profiles
+    get "team" => "users#index", as: "users"
+    get "team/:id/" => "users#show", as: "user"
+    get "team/:id/edit" => "users#edit", as: "edit_user"
+    patch "team/:id/" => "users#update"
+    put "team/:id/" => "users#update"
+    # get "users/destroy"
   end
   get "/:account_id/projects" => "projects#index", as: "satiisfy_root"
 
