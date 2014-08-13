@@ -1,5 +1,10 @@
 Satiisfy::Application.routes.draw do
 
+  get "users/index"
+  get "users/show"
+  get "users/edit"
+  get "users/update"
+  get "users/destroy"
   # project frontend
   scope :constraints => lambda { |request| !Subdomain.match(request) } do
     get "/" => "frontend#index", as: "frontend_index"
