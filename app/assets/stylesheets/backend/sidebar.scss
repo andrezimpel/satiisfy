@@ -1,4 +1,6 @@
 .sidebar {
+  padding-top: 7px;
+
   .btn {
     @extend .btn-block;
   }
@@ -12,4 +14,17 @@
     margin: $space-medium 0;
   }
 
+}
+
+.sidebar-note {
+  color: $grey;
+
+  h1, h2, h3, h4 {
+    border-bottom: 1px $grey-light solid;
+    color: $text-color;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: $space-small;
+    padding-bottom: $space-small;
+  }
 }

@@ -1,12 +1,37 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
+<div class="page-header">
+  <h2>Invite Member</h2>
+</div>
 
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
   <%= devise_error_messages! %>
-  <%= f.hidden_field :account_id, value: params[:account_id] %>
+  <%= f.hidden_field :account_id, value: @current_account.id %>
 
-<% resource.class.invite_key_fields.each do |field| -%>
-  <%= f.input field %>
-<% end -%>
+  <div class="row">
+    <div class="col-sm-6">
+      <% resource.class.invite_key_fields.each do |field| -%>
+        <%= f.input field, placeholder: field.to_s.humanize, required: true %>
+      <% end -%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :firstname, placeholder: "Firstname", required: true %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :lastname, placeholder: "Lastname", required: true %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :position, placeholder: "Position" %>
+    </div>
+  </div>
 
-<%= f.submit t("devise.invitations.new.submit_button") %>
+  <%= f.submit "Send Invitation", class: "btn btn-primary" %>
+<% end %>
+
+
+<% content_for "sidebar" do %>
+  <div class="sidebar-note">
+    <h2>Note:</h2>
+    <p>People added to satiisfy will be also able to join other accounts with the same id.</p>
+  </div>
 <% end %>

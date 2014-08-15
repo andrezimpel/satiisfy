@@ -21,25 +21,4 @@ class Profile < ActiveRecord::Base
   def fullname
     self.user.fullname
   end
-
-
-  # inviteable stat
-  def status
-    return 'invited' if user.invitation_token
-    return 'active' if user.last_sign_in_at
-  end
-
-  def is_active?
-    if self.status  == "active"
-      return true
-    end
-    return false
-  end
-
-  def is_invited?
-    if self.status  == "invited"
-      return true
-    end
-    return false
-  end
 end

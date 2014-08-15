@@ -2,12 +2,13 @@
   <h1>Team Members <small>(<%= @profiles.count %>)</small></h1>
 </div>
 
-<div class="row">
+
+<div class="member-listing">
   <% @profiles.each do |profile| %>
-    <div class="col-sm-4">
+    <div class="member-item">
       <div class="media">
         <div class="pull-left" href="<%= url_for profile %>">
-          <img src="<%= profile.avatar(:thumb_square) %>", alt="<%= profile.user.fullname %>" title="<%= profile.user.fullname %>" width="75">
+          <img class="avatar" src="<%= profile.avatar(:thumb_square) %>" alt="<%= profile.user.fullname %>" title="<%= profile.user.fullname %>" width="75">
         </div>
         <div class="media-body">
           <h4 class="media-heading"><%= profile.user.fullname %></h4>
@@ -18,12 +19,13 @@
           <% end %>
         </div>
       </div>
-      <br>
     </div>
   <% end %>
 </div>
 
 
+
+
 <% content_for "sidebar" do %>
-  <%= link_to "<i class='fa fa-plus'></i> Member".html_safe, new_user_invitation_path, class: "btn btn-primary" %>
+  <%= link_to "Invite Member".html_safe, new_user_invitation_path, class: "btn btn-primary" %>
 <% end %>
