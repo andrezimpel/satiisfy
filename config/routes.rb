@@ -8,34 +8,46 @@ Satiisfy::Application.routes.draw do
     get "/contact" => "frontend#contact", as: "frontend_contact"
   end
 
+
+
   # ----------------------------------------
+
+
 
   # backend
   scope ":account_id" do
+    # edit your account
     resources :accounts
 
+    # projects and questions
     resources :projects do
       resources :questions
     end
 
+    # search related stuff
+    get "search", to: "search#index"
 
     # invitation
     devise_scope :user do
-      get "team/invite", :to => "users/invitations#new", :as => "new_account_user_invitation"
-      post "team/invite", :to => "users/invitations#create"
+      get "team/invite", to: "users/invitations#new", :as => "new_account_user_invitation"
+      post "team/invite", to: "users/invitations#create"
     end
 
     # user profiles
-    get "team" => "users#index", as: "users"
-    get "team/:id/" => "users#show", as: "user"
-    get "team/:id/edit" => "users#edit", as: "edit_user"
-    patch "team/:id/" => "users#update"
-    put "team/:id/" => "users#update"
+    get "team", to: "users#index", as: "users"
+    get "team/:id/", to: "users#show", as: "user"
+    get "team/:id/edit", to: "users#edit", as: "edit_user"
+    patch "team/:id/", to: "users#update"
+    put "team/:id/", to: "users#update"
     # get "users/destroy"
   end
   get "/:account_id/projects" => "projects#index", as: "satiisfy_root"
 
+
+
   # ----------------------------------------
+
+
 
   resources :questions
 
