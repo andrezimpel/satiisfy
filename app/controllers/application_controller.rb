@@ -3,11 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-
   # layout
   layout :layout_by_resource
   def layout_by_resource
-    if devise_controller?
+    if devise_controller? && controller_name != "invitations"
       "devise"
     else
       "application"
@@ -22,10 +21,18 @@ class ApplicationController < ActionController::Base
   # devise
   before_action :authenticate_user!
 
-  # redirect after login
+  # store user login info in cookie for fast-login  & redirect after login
   def after_sign_in_path_for(resource)
-    satiisfy_root_path(current_user.account)
+    # cookies["satiisfy_user_id"] = {
+    #   :value => current_user.id,
+    #   :expires => 2.days.from_now
+    # }
+
+    super
+
+    # satiisfy_root_path(current_user.account)
   end
+
 
 
   # current account

@@ -10,6 +10,7 @@
     "bootstrap-markdown": "latest",
     "livestampjs": "latest",
     "to-markdown": "latest",
-    "markdown": "latest"
+    "markdown": "latest",
+    "jquery-cookie": "latest"
   }
 }
