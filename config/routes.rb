@@ -19,6 +19,11 @@ Satiisfy::Application.routes.draw do
     end
 
 
+    # invitation
+    # devise_scope :user do
+    #   match "team/invite", :to => "invitations#new", :via => "get", :as => "user_invitation"
+    # end
+
     # user profiles
     get "team" => "users#index", as: "users"
     get "team/:id/" => "users#show", as: "user"

@@ -7,7 +7,7 @@
   <% @users.each do |user| %>
     <div class="users-listing-item">
 
-        <a class="pull-left" href="<%= url_for user %>">
+        <a class="pull-left">
           <img class="media-object avatar" src="<%= user.avatar %>" alt="<%= user.fullname %>" title="<%= user.fullname %>" width="75">
           <% if user.is_active? %>
             <span class="label label-info">active</span>
@@ -16,8 +16,7 @@
           <% end %>
         </a>
         <div class="media-body">
-          <h4><%= link_to user.fullname, user %></h4>
-          <p><i class="fa fa-briefcase"></i> <%= user.position if user.position %></p>
+          <h4><%= user.fullname %><%#= link_to user.fullname, user %></h4>
         </div>
     </div>
   <% end %>

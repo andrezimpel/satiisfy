@@ -7,7 +7,22 @@
   </h1>
 </div>
 
-#
+<div class="user-info-wrapper">
+  <div class="user-info">
+    <b>Position:</b> <%= @user.position %>
+  </div>
+  <div class="user-info">
+    <b>Online since:</b> <span data-livestamp="<%= @user.last_sign_in_at.to_i %>"></span>
+  </div>
+  <div class="user-info">
+    <b>Last seen:</b> <span data-livestamp="<%= @user.current_sign_in_at.to_i %>"></span>
+  </div>
+</div>
+
+
+
+
+
 
 
 <% content_for "sidebar" do %>

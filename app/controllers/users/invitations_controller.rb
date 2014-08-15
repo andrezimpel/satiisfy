@@ -1,6 +1,6 @@
 class Users::InvitationsController < Devise::InvitationsController
   after_filter :add_account_id, only: [:create]
-  after_filter :add_person_information, only: [:update]
+  after_filter :add_person_information, only: [:create]
 
   # layout "devise"
 
@@ -11,12 +11,11 @@ class Users::InvitationsController < Devise::InvitationsController
 
   def add_person_information
     user = resource
-    profile = user.profile
 
-    profile.firstname = params[:user][:profile][:firstname] if !params[:user][:profile][:firstname].empty?
+    user.firstname = params[:user][:firstname] if !params[:user][:firstname].empty?
+    user.lastname = params[:user][:lastname] if !params[:user][:lastname].empty?
+    user.position = params[:user][:position] if !params[:user][:position].empty?
 
-    profile.lastname = params[:user][:profile][:lastname] if !params[:user][:profile][:lastname].empty?
-
-    profile.save!
+    user.save!
   end
 end

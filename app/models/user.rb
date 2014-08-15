@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  default_scope { order('firstname ASC') }
+  default_scope { order('invitation_token ASC', 'firstname ASC') }
 
   # userstamps
   model_stamper
