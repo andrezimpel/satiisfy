@@ -4,7 +4,7 @@
 
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
   <%= devise_error_messages! %>
-  <%= f.hidden_field :account_id, value: params[:account_id] %>
+  <%= f.hidden_field :account_id, value: @current_account.id %>
 
   <div class="row">
     <div class="col-sm-6">
