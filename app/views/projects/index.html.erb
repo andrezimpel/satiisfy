@@ -4,9 +4,7 @@
 
 <% if @projects.first.present? %>
   <div class="projects-listing">
-    <% @projects.each do |project| %>
-      <%= render 'project', project: project %>
-    <% end %>
+    <%= render "projects/grid", projects: @projects %>
   </div>
 <% else %>
   <p class="lead text-center"><%= link_to "Add a project", new_project_path %> now.</p>

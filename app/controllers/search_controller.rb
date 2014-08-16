@@ -7,6 +7,7 @@ class SearchController < ApplicationController
     # run the search
     search_results = Sunspot.search Project, Question do
       fulltext params[:search]
+      with :account_id, params[:account_id]
 
       paginate page: params[:page], per_page: 10
     end
@@ -18,6 +19,7 @@ class SearchController < ApplicationController
     @results_count = search_results.total
     @results = @results.to_a
     @all_grouped_results = @results.group_by(&:class)
+    @grouped_results = @all_grouped_results
     results = @results
 
     # filter results if a class is given

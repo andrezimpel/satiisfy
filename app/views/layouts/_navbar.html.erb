@@ -19,10 +19,6 @@
       </ul>
 
       <form class="navbar-form navbar-left" action="<%= search_path %>" method="get">
-        <input type="hidden" name="account" value="<%= @current_account.id %>">
-        <%# if params.has_key?((:class)) %>
-          <!-- <input type="hidden" name="class" value="<%#= params[:class] %>"> -->
-        <%# end %>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search" value="<%= params[:search] if params.has_key?((:search)) %>">
         </div>

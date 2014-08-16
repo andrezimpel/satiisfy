@@ -96,6 +96,7 @@ GEM
       devise (>= 3.1.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    highline (1.6.21)
     hike (1.2.3)
     httpclient (2.3.4.1)
     i18n (0.6.9)
@@ -126,9 +127,13 @@ GEM
     net-ssh (2.8.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    options (2.3.2)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
     pr_geohash (1.0.0)
+    progress_bar (1.0.3)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -229,6 +234,7 @@ DEPENDENCIES
   kaminari
   mysql2
   paperclip!
+  progress_bar
   pry-rails
   rails (= 4.0.4)
   rails-timeago

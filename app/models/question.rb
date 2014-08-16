@@ -13,9 +13,16 @@ class Question < ActiveRecord::Base
   # filter active projects
   scope :active, lambda { where(['published_at IS NOT NULL']) }
 
+
+
   # solr search
   searchable do
     text :title, :answer
-    string(:class) { |q| q.class.name.to_s.downcase }
+    integer :account_id
+    # string(:class) { |q| q.class.name.to_s.downcase }
+  end
+  # account id for question
+  def account_id
+    self.project.account_id
   end
 end

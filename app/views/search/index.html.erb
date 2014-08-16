@@ -1,81 +1,17 @@
 <div class="page-header">
-  <h1>Results for: <span class="highlight"><%= @search_query %></span></h1>
+  <h1>Results for: <span class="highlight"><%= @search_query %></span> <small>(<%= pluralize(@results_count, "result")%>)</small></h1>
 </div>
 
 <% if @results.count > 0 %>
-  <p>About <%= pluralize(@results_count, "result")%></p>
-  <%= debug @results %>
+  <% @grouped_results.each do |group, items| %>
+    <h4><%= pluralize(items.count, group.to_s) %></h4>
+    <%= render group.to_s.downcase, items: items %>
+  <% end %>
+
+  <%= paginate @results_blank.hits %>
 <% else %>
   <p class="lead">No results found for <span class="highlight"><%= @search_query %></span>.</p>
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%# if @search.results.count == 0 %>
-
-<%# else %>
-<%# end%>
-
-<%# @search.each_hit_with_result do |hit, result| %>
-  <%#= debug result if result.class.to_s.downcase == params[:class] && params.has_key?(:class) %>
-  <%#= debug result %>
-<%# end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%= paginate @results_blank.hits %>
-
-
 
 
 <% content_for "sidebar" do %>

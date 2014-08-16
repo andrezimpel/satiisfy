@@ -15,6 +15,7 @@ class Project < ActiveRecord::Base
   # solr search
   searchable do
     text :title, :description
-    string(:class) { |q| q.class.name.to_s.downcase }
+    integer :account_id
+    # string :class
   end
 end
