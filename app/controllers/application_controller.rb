@@ -23,17 +23,22 @@ class ApplicationController < ActionController::Base
 
   # store user login info in cookie for fast-login  & redirect after login
   def after_sign_in_path_for(resource)
-    # cookies["satiisfy_user_id"] = {
-    #   :value => current_user.id,
-    #   :expires => 2.days.from_now
-    # }
 
-    super
+    cookies["satiisfy_user_id"] = {
+      :value => current_user.id,
+      :expires => 2.days.from_now
+    }
 
-    # satiisfy_root_path(current_user.account)
+
+    satiisfy_root_path(current_user.account)
   end
 
 
+  def redirect_to_with_logging(*args)
+    logger.debug "Redirect: #{args.inspect} from #{caller[0]}"
+    redirect_to_without_logging *args
+  end
+  alias_method_chain :redirect_to, :logging
 
   # current account
   before_filter :set_current_account
@@ -47,7 +52,7 @@ class ApplicationController < ActionController::Base
 
     # redirect to the user account if there is no account id
     if current_user
-      return redirect_to satiisfy_root_path(current_user.account)
+      return redirect_to satiisfy_root_path(current_user.account) unless controller_name == "sessions" && action_name == "create"
     end
 
     # dont' raise the exception if we are in the devise stuff
