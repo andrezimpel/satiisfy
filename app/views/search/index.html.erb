@@ -10,7 +10,7 @@
 
   <%= paginate @results_blank.hits %>
 <% else %>
-  <p class="lead">No results found for <span class="highlight"><%= @search_query %></span>.</p>
+  <p class="lead">No results found for <span class="highlight"><%= @search_query %></span><%= " in #{params[:class]}s" if params.has_key?(:class) %>.</p>
 <% end %>
 
 
