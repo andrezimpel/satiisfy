@@ -10,6 +10,26 @@
     color: $black;
   }
 
+  .icon-bar {
+    background: $text-color;
+  }
+
+  .navbar-form {
+    display: block;
+    position: relative;
+    text-align: center;
+
+
+    .form-control {
+      display: inline-block;
+      width: auto;
+    }
+  }
+
+  .navbar-user {
+    margin-right: -$space-medium;
+  }
+
   .nav {
 
     > li {

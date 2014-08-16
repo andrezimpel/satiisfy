@@ -2,6 +2,13 @@ h1, h2, h3 {
   font-weight: 300;
 }
 
+h4, h5, h6 {
+  border-bottom: 1px solid $grey-light;
+  display: inline-block;
+  margin: $space-medium 0 $space-medium 0;
+  padding: 0 $space $space-small 0;
+}
+
 hr {
 // $grey-light
 }

@@ -11,4 +11,11 @@ class Project < ActiveRecord::Base
 
   # filter active projects
   scope :active, lambda { where(['active IS TRUE']) }
+
+  # solr search
+  searchable do
+    text :title, :description
+    integer :account_id
+    # string :class
+  end
 end

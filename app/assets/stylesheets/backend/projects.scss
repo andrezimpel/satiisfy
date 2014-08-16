@@ -1,6 +1,10 @@
 // dashboard
-.projects-wrapper {
+.projects-listing {
   @include make-row;
+
+  .project {
+    margin-bottom: $space-medium;
+  }
 }
 .project {
   @include make-sm-column(6);
