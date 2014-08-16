@@ -25,7 +25,9 @@ Satiisfy::Application.routes.draw do
     end
 
     # search related stuff
-    get "search", to: "search#index"
+    # get "search", to: "search#index", as: "search"
+    # post "search", to: "search#index"
+    get "search", controller: :search, action: :index
 
     # invitation
     devise_scope :user do

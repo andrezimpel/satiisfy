@@ -23,6 +23,11 @@
 
 
 // additional
+
+.highlight {
+  color: $brand-primary;
+}
+
 .btn-link-danger {
   @extend .btn-link;
 

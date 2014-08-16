@@ -41,6 +41,12 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'devise_invitable'
 gem 'userstamp', git: 'git://github.com/andrezimpel/userstamp.git'
 gem 'rails-timeago'
+gem 'kaminari'
+
+# search
+# backend
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 group :development do
   gem 'capistrano', '~> 3.0.0'
