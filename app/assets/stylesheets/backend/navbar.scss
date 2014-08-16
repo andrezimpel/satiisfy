@@ -18,6 +18,7 @@
     display: block;
     position: relative;
     text-align: center;
+    z-index: 2;
 
 
     .form-control {
@@ -35,6 +36,8 @@
   }
 
   .nav {
+    position: relative;
+    z-index: 3;
 
     > li {
       border-bottom: 1px $grey-light solid;
