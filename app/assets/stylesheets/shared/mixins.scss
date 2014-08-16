@@ -11,6 +11,18 @@
     margin-bottom: 0;
   }
 }
+// Pills
+// -------------------------
+.nav-pills {
+  > li {
+
+    // Links rendered as pills
+    > a {
+      background: $grey-super-light;
+      color: $text-color;
+    }
+  }
+}
 
 
 // mixins
