@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Results for: <span class="highlight"><%= @search_query %></span> <small>(<%= pluralize(@results_count, "result")%>)</small></h1>
+</div>
+
+<% if @results.count > 0 %>
+  <% @grouped_results.each do |group, items| %>
+    <h4><%= pluralize(items.count, group.to_s) %></h4>
+    <%= render group.to_s.downcase, items: items %>
+  <% end %>
+
+  <%= paginate @results_blank.hits %>
+<% else %>
+  <p class="lead">No results found for <span class="highlight"><%= @search_query %></span><%= " in #{params[:class]}s" if params.has_key?(:class) %>.</p>
+<% end %>
+
+
+<% content_for "sidebar" do %>
+  <ul class="nav nav-pills nav-stacked">
+    <% @sidebar_elements.each do |res| %>
+      <li class="<%= params[:class] == res[1] ? 'active' : 'not' %>">
+        <% if params.has_key?(:class) && params[:class] == res[1] %>
+          <a href="<%= url_for params.merge(class: nil) %>">
+        <% else %>
+          <a href="<%= url_for params.merge(class: res[1]) %>">
+        <% end %>
+          <span class="badge pull-right"><%= search_result_count(res[1], @all_grouped_results) %></span>
+          <%= res[0] %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -3,10 +3,8 @@
 </div>
 
 <% if @projects.first.present? %>
-  <div class="projects-wrapper">
-    <% @projects.each do |project| %>
-      <%= render 'project', project: project %>
-    <% end %>
+  <div class="projects-listing">
+    <%= render "projects/grid", projects: @projects %>
   </div>
 <% else %>
   <p class="lead text-center"><%= link_to "Add a project", new_project_path %> now.</p>
