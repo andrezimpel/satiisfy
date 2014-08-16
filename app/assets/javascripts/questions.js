@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("textarea").markdown(
-    {iconlibrary: "fa"}
-  );
+  // $("textarea").markdown(
+  //   {iconlibrary: "fa"}
+  // );
 });
