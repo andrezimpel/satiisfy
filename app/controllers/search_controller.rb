@@ -2,10 +2,10 @@ class SearchController < ApplicationController
   def index
     # view helper
     @search_query = params[:search] if params.has_key?(:search) # the search query
-    @sidebar_elements = [["Projects", "project"], ["Questions", "question"]]
+    @sidebar_elements = [["Projects", "project"], ["Questions", "question"], ["Users", "user"]]
 
     # run the search
-    search_results = Sunspot.search Project, Question do
+    search_results = Sunspot.search Project, Question, User do
       fulltext params[:search]
       with :account_id, params[:account_id]
 
