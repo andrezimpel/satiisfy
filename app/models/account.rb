@@ -7,5 +7,5 @@ class Account < ActiveRecord::Base
   accepts_nested_attributes_for :users
 
   # validations
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
 end
