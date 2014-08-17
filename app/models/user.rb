@@ -23,6 +23,13 @@ class User < ActiveRecord::Base
   end
 
 
+  # solr search
+  searchable do
+    text :firstname, :lastname, :email, :position
+    integer :account_id
+  end
+
+
   # associations
   belongs_to :account
 

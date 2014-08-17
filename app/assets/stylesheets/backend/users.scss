@@ -1,8 +1,8 @@
-.users-listing {
+.users-grid {
   @include make-row;
 }
 
-.users-listing-item {
+.users-grid-item {
   @include make-sm-column(4);
   @extend .media;
 

@@ -12,7 +12,7 @@
 
         <div class="media">
           <div class="pull-left">
-            <img class="media-object avatar" src="<%= @login.avatar(:thumb) %>" width="41">
+            <img class="media-object avatar" src="<%= @login.avatar(:thumb_square) %>" width="41">
           </div>
           <div class="media-body">
             <p class="form-control-static">Welcome back, <b><%= @login.firstname_fallback %></b>!<br><small>Not you? <%= link_to "Switch User", "xxx", :id => "switch-user" %></small></p>
