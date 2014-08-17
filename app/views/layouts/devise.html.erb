@@ -20,7 +20,11 @@
           <footer>
             <div class="footer-nav clearfix">
               <div class="pull-left">
-                <%= render "users/shared/links" %>
+                <% if defined? resource_name %>
+                  <%= render "users/shared/links" %>
+                <% else %>
+                  <%= link_to "Sign in", signin_path %>
+                <% end %>
               </div>
 
               <div class="pull-right">
