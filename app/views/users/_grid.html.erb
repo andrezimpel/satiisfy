@@ -2,7 +2,7 @@
   <div class="users-grid-item">
 
       <a class="pull-left">
-        <img class="media-object avatar" src="<%= user.avatar %>" alt="<%= user.fullname %>" title="<%= user.fullname %>" width="75">
+        <img class="media-object avatar" src="<%= user.avatar(:thumb_square) %>" alt="<%= user.fullname %>" title="<%= user.fullname %>" width="75">
         <% if user.is_active? %>
           <span class="label label-info">active</span>
         <% else %>
