@@ -58,7 +58,7 @@ Satiisfy::Application.routes.draw do
   # user and account stuff
   resources :accounts
   devise_for :users,
-              :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations" },
+              :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations", :sessions => "users/sessions" },
               :path => "",
               :path_names => {:sign_in => 'login', :sign_up => "signup", :sign_out => 'logout'}
   as :user do

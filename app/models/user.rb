@@ -65,4 +65,13 @@ class User < ActiveRecord::Base
     # return email
     return self.email
   end
+
+  # get user firstname with email fallback
+  def firstname_fallback
+    # return fristname if available
+    return self.firstname unless self.firstname == nil
+
+    # return email
+    return self.email
+  end
 end
