@@ -35,8 +35,8 @@
 //= require momentjs/moment.js
 //= require livestampjs/livestamp.js
 
-
-
+//= require typeahead.js/dist/typeahead.bundle.js
+//= require handlebars/handlebars.js
 
 
 //= require main

@@ -1,6 +1,6 @@
 {
   "name": "satiisfy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "bootstrap-sass": "latest",
     "font-awesome": "latest",
@@ -12,6 +12,7 @@
     "to-markdown": "latest",
     "markdown": "latest",
     "jquery-cookie": "latest",
-    "typeahead.js": "latest"
+    "typeahead.js": "latest",
+    "handlebars": "latest"
   }
 }
