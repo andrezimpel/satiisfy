@@ -35,6 +35,11 @@
     margin-right: -$space-medium;
   }
 
+  .navbar-brand {
+    position: relative;
+    z-index: 3;
+  }
+
   .nav {
     position: relative;
     z-index: 3;
