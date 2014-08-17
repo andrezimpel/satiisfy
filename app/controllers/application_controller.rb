@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
 
     # gerate fast login id
-    fast_login_id = SecureRandom.hex(64)
+    fast_login_id = SecureRandom.uuid
 
     # set fast login id cookie
     cookies["satiisfy_fast_login_id"] = {
