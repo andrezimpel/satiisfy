@@ -25,8 +25,6 @@ Satiisfy::Application.routes.draw do
     end
 
     # search related stuff
-    # get "search", to: "search#index", as: "search"
-    # post "search", to: "search#index"
     get "search", controller: :search, action: :index
 
     # invitation
@@ -53,23 +51,20 @@ Satiisfy::Application.routes.draw do
 
   resources :questions
 
-
   # signup
   get "/signup" => "accounts#new", as: "signup"
   get "/accounts/new" => redirect("/signup")
 
-
-
   # user and account stuff
   resources :accounts
   devise_for :users,
-              :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations" },
+              :controllers => { :invitations => 'users/invitations', :registrations => "users/registrations", :sessions => "users/sessions" },
               :path => "",
               :path_names => {:sign_in => 'login', :sign_up => "signup", :sign_out => 'logout'}
   as :user do
     get "/login" => "devise/sessions#new", as: "user_login"
     get "/signin" => redirect("login")
-    delete "/signout" => "devise/sessions#destroy"
+    delete "/logout" => "devise/sessions#destroy"
   end
 
   root 'projects#index'

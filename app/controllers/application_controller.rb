@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # filters
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+
   # layout
   layout :layout_by_resource
   def layout_by_resource
@@ -19,20 +23,25 @@ class ApplicationController < ActionController::Base
 
 
   # devise
-  before_action :authenticate_user!
+
 
   # store user login info in cookie for fast-login  & redirect after login
   def after_sign_in_path_for(resource)
-    # cookies["satiisfy_user_id"] = {
-    #   :value => current_user.id,
-    #   :expires => 2.days.from_now
-    # }
 
-    super
+    # gerate fast login id
+    fast_login_id = SecureRandom.uuid
 
-    # satiisfy_root_path(current_user.account)
+    # set fast login id cookie
+    cookies["satiisfy_fast_login_id"] = {
+      :value => fast_login_id,
+      :expires => 2.days.from_now
+    }
+
+    # save fast login id in user
+    current_user.update_attribute :fast_login_id, fast_login_id
+
+    satiisfy_root_path(current_user.account)
   end
-
 
 
   # current account
@@ -47,7 +56,7 @@ class ApplicationController < ActionController::Base
 
     # redirect to the user account if there is no account id
     if current_user
-      return redirect_to satiisfy_root_path(current_user.account)
+      return redirect_to satiisfy_root_path(current_user.account) unless controller_name == "sessions" && action_name == "create"
     end
 
     # dont' raise the exception if we are in the devise stuff
@@ -63,5 +72,15 @@ class ApplicationController < ActionController::Base
     else
       { :account_id => nil }
     end
+  end
+
+
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fast_login_id, :email, :password, :password_confirmation, :remember_me) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :fast_login_id, :email, :password, :remember_me) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:fast_login_id, :email, :password, :password_confirmation, :current_password) }
   end
 end
