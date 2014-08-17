@@ -16,8 +16,6 @@ Satiisfy::Application.routes.draw do
 
   # backend
   scope ":account_id" do
-    get "/" => redirect("/:account_id/projects")
-
     # edit your account
     resources :accounts
 
@@ -68,6 +66,9 @@ Satiisfy::Application.routes.draw do
     get "/signin" => redirect("login")
     delete "/logout" => "devise/sessions#destroy"
   end
+
+
+  get "/:account_id" => redirect("/")
 
   root 'projects#index'
 end
