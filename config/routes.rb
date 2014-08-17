@@ -16,6 +16,8 @@ Satiisfy::Application.routes.draw do
 
   # backend
   scope ":account_id" do
+    get "/" => redirect("/:account_id/projects")
+
     # edit your account
     resources :accounts
 

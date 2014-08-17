@@ -1,14 +1,16 @@
 <div class="page-header">
-  <h1>Results for: <span class="highlight"><%= @search_query %></span> <small>(<%= pluralize(@results_count, "result")%>)</small></h1>
+  <h1>Results for: <span class="highlight"><%= @search_query %></span> <small>(<%= pluralize(@results.group(:klass).matches, "result")%>)</small></h1>
 </div>
 
-<% if @results.count > 0 %>
-  <% @grouped_results.each do |group, items| %>
-    <h4><%= pluralize(items.count, group.to_s) %></h4>
-    <%= render group.to_s.downcase, items: items %>
+<% if @results.group(:klass).matches > 0 %>
+  <% @results.group(:klass).groups.each do |group| %>
+    <h4><%= pluralize(group.results.count, group.value.to_s) %></h4>
+    <%= render group.value.to_s.downcase, items: group.results %>
   <% end %>
 
-  <%= paginate @results_blank.hits %>
+
+
+  <%#= paginate @results.group(:klass).groups.hits %>
 <% else %>
   <p class="lead">No results found for <span class="highlight"><%= @search_query %></span><%= " in #{params[:class]}s" if params.has_key?(:class) %>.</p>
 <% end %>
@@ -23,7 +25,7 @@
         <% else %>
           <a href="<%= url_for params.merge(class: res[1], page: nil) %>">
         <% end %>
-          <span class="badge pull-right hidden"><%= search_result_count(res[1], @all_grouped_results) %></span>
+          <span class="badge pull-right hidden"><%#= search_result_count(res[1], @results.group(:klass).groups) %></span>
           <%= res[0] %>
         </a>
       </li>

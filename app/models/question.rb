@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
 
   # associations
   belongs_to :project
+  belongs_to :account
 
   # validations
   validates :title, presence: true
