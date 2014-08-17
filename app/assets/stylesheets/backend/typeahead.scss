@@ -49,16 +49,16 @@
   font-weight: bold;
   display: block;
   padding: $space-mini $space-small;
-  margin: $space-mini 0;
+  margin: 0 0 $space-mini 0;
 }
 
 .empty-message {
   padding: $space-mini $space-small;
+  margin-bottom: $space-mini;
 }
 
-.tt-suggestions,
-.empty-message {
-
+.tt-suggestions {
+  padding-bottom: $space-mini;
 }
 
 .tt-suggestion {
