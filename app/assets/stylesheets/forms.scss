@@ -1,4 +1,9 @@
 .form-control {
   box-shadow: none !important;
   // -webkit-appearance: none;
+
+  &:focus,
+  &:active {
+    box-shadow: none !important;
+  }
 }
