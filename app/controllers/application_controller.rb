@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # filters
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+
   # layout
   layout :layout_by_resource
   def layout_by_resource
@@ -19,26 +23,26 @@ class ApplicationController < ActionController::Base
 
 
   # devise
-  before_action :authenticate_user!
+
 
   # store user login info in cookie for fast-login  & redirect after login
   def after_sign_in_path_for(resource)
 
-    cookies["satiisfy_user_id"] = {
-      :value => current_user.id,
+    # gerate fast login id
+    fast_login_id = SecureRandom.hex(64)
+
+    # set fast login id cookie
+    cookies["satiisfy_fast_login_id"] = {
+      :value => fast_login_id,
       :expires => 2.days.from_now
     }
 
+    # save fast login id in user
+    current_user.update_attribute :fast_login_id, fast_login_id
 
     satiisfy_root_path(current_user.account)
   end
 
-
-  def redirect_to_with_logging(*args)
-    logger.debug "Redirect: #{args.inspect} from #{caller[0]}"
-    redirect_to_without_logging *args
-  end
-  alias_method_chain :redirect_to, :logging
 
   # current account
   before_filter :set_current_account
@@ -68,5 +72,15 @@ class ApplicationController < ActionController::Base
     else
       { :account_id => nil }
     end
+  end
+
+
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fast_login_id, :email, :password, :password_confirmation, :remember_me) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :fast_login_id, :email, :password, :remember_me) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:fast_login_id, :email, :password, :password_confirmation, :current_password) }
   end
 end

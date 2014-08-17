@@ -1,8 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   def new
 
-    if cookies[:satiisfy_user_id] != nil
-      @login = User.find(cookies[:satiisfy_user_id])
+    if cookies[:satiisfy_fast_login_id] != nil
+      @login = User.where(fast_login_id: (cookies[:satiisfy_fast_login_id])).first
     end
 
     super

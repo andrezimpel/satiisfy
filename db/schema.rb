@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813155550) do
+ActiveRecord::Schema.define(version: 20140817004304) do
 
   create_table "accounts", force: true do |t|
     t.string   "title"
@@ -88,7 +88,10 @@ ActiveRecord::Schema.define(version: 20140813155550) do
   add_index "questions", ["published_at"], name: "index_questions_on_published_at", using: :btree
 
   create_table "users", force: true do |t|
+    t.integer  "account_id"
     t.string   "email",                  default: "", null: false
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -100,7 +103,6 @@ ActiveRecord::Schema.define(version: 20140813155550) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "account_id"
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -114,12 +116,12 @@ ActiveRecord::Schema.define(version: 20140813155550) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "firstname"
-    t.string   "lastname"
     t.string   "position"
+    t.string   "fast_login_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["fast_login_id"], name: "index_users_on_fast_login_id", using: :btree
   add_index "users", ["firstname"], name: "index_users_on_firstname", using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
