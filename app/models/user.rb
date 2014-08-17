@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
   searchable do
     text :firstname, :lastname, :email, :position
     integer :account_id
+    string :klass
+  end
+
+  def klass
+    return self.class.to_s.downcase
   end
 
 
