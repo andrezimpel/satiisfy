@@ -141,6 +141,6 @@ $(document).ready(function(){
 
 
   $(document).click(function(event) {
-    // if ($(event.target).attr('class') !== 'tt-input' || $(event.target).attr('class') !== 'tt-hint') $('#globalsearchform').typeahead('close');
+    if (!$(event.target).hasClass('tt-input')) $('#globalsearchform').typeahead('close');
   });
 });
