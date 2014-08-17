@@ -10,6 +10,19 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable
 
+  # fast login
+  attr_accessor :login
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["fast_login_id = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions).first
+    end
+  end
+
+
   # associations
   belongs_to :account
 
@@ -59,6 +72,15 @@ class User < ActiveRecord::Base
       return self.firstname + " " + self.lastname
     end
 
+    # return fristname if available
+    return self.firstname unless self.firstname == nil
+
+    # return email
+    return self.email
+  end
+
+  # get user firstname with email fallback
+  def firstname_fallback
     # return fristname if available
     return self.firstname unless self.firstname == nil
 
