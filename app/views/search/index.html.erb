@@ -19,9 +19,9 @@
     <% @sidebar_elements.each do |res| %>
       <li class="<%= params[:class] == res[1] ? 'active' : 'not' %>">
         <% if params.has_key?(:class) && params[:class] == res[1] %>
-          <a href="<%= url_for params.merge(class: nil) %>">
+          <a href="<%= url_for params.merge(class: nil, page: nil) %>">
         <% else %>
-          <a href="<%= url_for params.merge(class: res[1]) %>">
+          <a href="<%= url_for params.merge(class: res[1], page: nil) %>">
         <% end %>
           <span class="badge pull-right hidden"><%= search_result_count(res[1], @all_grouped_results) %></span>
           <%= res[0] %>
