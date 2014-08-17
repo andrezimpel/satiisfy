@@ -23,7 +23,7 @@
         <% else %>
           <a href="<%= url_for params.merge(class: res[1]) %>">
         <% end %>
-          <span class="badge pull-right"><%= search_result_count(res[1], @all_grouped_results) %></span>
+          <span class="badge pull-right hidden"><%= search_result_count(res[1], @all_grouped_results) %></span>
           <%= res[0] %>
         </a>
       </li>
