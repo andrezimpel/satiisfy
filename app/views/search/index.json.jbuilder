@@ -1,6 +1,11 @@
-json.array!(@all_grouped_results) do |group, results|
-  results.each do |result|
-    json.id result.id
-    # json.url project_url(project)
-  end
+json.array!(@results.group(:klass).groups) do |group|
+  klass = group.value
+  results = group.results
+
+
+  json.partial! "search/#{group.value}", items: group.results
+  json.class group.value
+
+  # json.extract! result, :id
+  # json.url profile_url(profile, format: :json)
 end

@@ -27,19 +27,60 @@
   border-top: 1px solid $grey-light;
   border-bottom-left-radius: $base-radius;
   border-bottom-right-radius: $base-radius;
-  box-shadow: 0 1px 3px rgba($black, 0.09);
+  box-shadow: 0 1px 3px rgba($black, 0.1);
   padding: 0;
+  text-align: left;
   width: 350px;
 
   .active,
   .tt-cursor {
-    background: blue;
+    background: $brand-primary;
+    color: white !important;
+
+    a {
+      color: white;
+    }
   }
 }
 
+.tt-header {
+  background: $grey-super-light;
+  color: text-color;
+  font-weight: bold;
+  display: block;
+  padding: $space-mini $space-small;
+  margin: $space-mini 0;
+}
+
+.empty-message {
+  padding: $space-mini $space-small;
+}
+
+.tt-suggestions,
+.empty-message {
+
+}
+
 .tt-suggestion {
+  @include clearfix();
+
   padding: $space-tiny $space-mini;
   text-align: left;
+
+
+  .users-grid-item {
+    @include make-sm-column(12);
+
+    display: block;
+    margin: 0;
+    padding: $space-small $space-small;
+  }
+
+  .tt-question,
+  .tt-project {
+    display: block;
+    padding: $space-mini $space-small;
+  }
 }
 
 

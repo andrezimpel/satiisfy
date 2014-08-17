@@ -18,6 +18,10 @@ body {
   @include make-sm-column(10);
 }
 
+.page.faded {
+  opacity: 0.35;
+}
+
 
 
 .page-header {
