@@ -27,7 +27,6 @@ class SearchController < ApplicationController
     @grouped_results = @all_grouped_results
     results = @results
 
-
     # grouped results by a class
     @grouped_results = @results.group_by(&:class)
   end
