@@ -8,6 +8,7 @@ class SearchController < ApplicationController
     search_results = Sunspot.search Project, Question, User do
       fulltext params[:search]
       with :account_id, params[:account_id]
+      with :klass, "question"
 
       paginate page: params[:page], per_page: 10
     end

@@ -18,11 +18,16 @@
     display: block;
     position: relative;
     text-align: center;
+    z-index: 2;
 
 
     .form-control {
       display: inline-block;
       width: auto;
+    }
+
+    button {
+      padding-top: 7px;
     }
   }
 
@@ -31,6 +36,8 @@
   }
 
   .nav {
+    position: relative;
+    z-index: 3;
 
     > li {
       border-bottom: 1px $grey-light solid;

@@ -45,72 +45,11 @@ body {
   margin: $space-medium 0;
 }
 
+// pagination
+.pagination-wrapper {
+  text-align: center;
 
-
-// body {
-//   background: white;
-//   color: #6a6a6a;
-// }
-//
-//
-// // full size background
-// .full-background {
-//   background-size: cover;
-//   bottom: 0;
-//   left: 0;
-//   position: fixed;
-//   right: 0;
-//   top: 0;
-//   z-index: 1;
-//
-//   -webkit-filter: blur(20px);
-//   -webkit-transform: scale(1.2);
-// }
-//
-//
-//
-// // header
-// header {
-//   background: rgba(#232323, 0.9);
-//   color: #6a6a6a;
-//   height: 50px;
-//   position: relative;
-//   z-index: 2;
-//
-//   a {
-//     color: #6a6a6a;
-//
-//     &:hover {
-//       color: darken(#6a6a6a, 20%);
-//     }
-//   }
-// }
-//
-//
-//
-// // page
-// .page-wrapper {
-//   @extend .container;
-//
-//   position: relative;
-//   margin-top: 40px;
-//   z-index: 2;
-// }
-// .page {
-//   @include make-row;
-//
-//   background: rgba(#eee, 0.5);
-//   border-radius: 2px;
-//   box-shadow: 0 5px 5px rgba($black, 0.025),
-//               0 0px 35px rgba($black, 0.05);
-// }
-// .page-content {
-//   @include make-sm-column(10);
-//
-//   background: white;
-//   border-left: 1px solid rgba(#6a6a6a, 0.7);
-//   float: right !important;
-// }
-// .page-sidebar {
-//   @include make-sm-column(2);
-// }
+  .pagination {
+    margin: $space 0 ($space - 5) 0;
+  }
+}

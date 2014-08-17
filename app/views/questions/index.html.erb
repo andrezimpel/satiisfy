@@ -6,6 +6,8 @@
     <%= render 'questions/list', questions: @questions %>
   </div>
 
+  <%= paginate @questions %>
+
 <% else %>
   <p class="lead">This project is empty. <%= link_to "Add", new_project_question_path(@project) %> a Question now.</p>
 <% end %>

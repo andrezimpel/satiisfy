@@ -19,10 +19,13 @@ class Question < ActiveRecord::Base
   searchable do
     text :title, :answer
     integer :account_id
-    # string(:class) { |q| q.class.name.to_s.downcase }
+    string :klass
   end
   # account id for question
   def account_id
     self.project.account_id
+  end
+  def klass
+    return self.class.to_s.downcase
   end
 end

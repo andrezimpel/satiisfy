@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @project = Project.find(params[:project_id])
-    @questions = @project.questions.order("title ASC")
+    @questions = @project.questions.order("title ASC").page(params[:page]).per(50)
   end
 
   # GET /questions/1

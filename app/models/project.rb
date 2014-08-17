@@ -16,6 +16,10 @@ class Project < ActiveRecord::Base
   searchable do
     text :title, :description
     integer :account_id
-    # string :class
+    string :klass
+  end
+  
+  def klass
+    return self.class.to_s.downcase
   end
 end
