@@ -11,6 +11,7 @@
     "livestampjs": "latest",
     "to-markdown": "latest",
     "markdown": "latest",
-    "jquery-cookie": "latest"
+    "jquery-cookie": "latest",
+    "typeahead.js": "latest"
   }
 }
