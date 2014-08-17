@@ -4,8 +4,12 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @project = Project.find(params[:project_id])
-    @questions = @project.questions.order("title ASC").page(params[:page]).per(50)
+    if request.format != "application/json"
+      @project = Project.find(params[:project_id])
+      @questions = @project.questions.order("title ASC").page(params[:page]).per(50)
+    else
+      @questions = @current_account.questions
+    end
   end
 
   # GET /questions/1

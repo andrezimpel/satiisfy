@@ -23,6 +23,7 @@ Satiisfy::Application.routes.draw do
     resources :projects do
       resources :questions
     end
+    resources :questions
 
     # search related stuff
     get "search", controller: :search, action: :index
