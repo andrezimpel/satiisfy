@@ -14,6 +14,17 @@ $(document).ready(function(){
           return result;
         });
       }
+    },
+    remote: {
+      url: 'http://satiisfy.dev/1/search.json?class=project&search=%QUERY',
+      filter: function(list) {
+        return $.map($(list)[0].array, function(result) {
+          return result;
+        });
+      }
+    },
+    dupDetector: function(remoteMatch, localMatch) {
+      return remoteMatch.id === localMatch.id;
     }
   });
 
@@ -31,6 +42,17 @@ $(document).ready(function(){
           return result;
         });
       }
+    },
+    remote: {
+      url: 'http://satiisfy.dev/1/search.json?class=question&search=%QUERY',
+      filter: function(list) {
+        return $.map($(list)[0].array, function(result) {
+          return result;
+        });
+      }
+    },
+    dupDetector: function(remoteMatch, localMatch) {
+      return remoteMatch.id === localMatch.id;
     }
   });
 
@@ -51,6 +73,17 @@ $(document).ready(function(){
           return result;
         });
       }
+    },
+    remote: {
+      url: 'http://satiisfy.dev/1/search.json?class=user&search=%QUERY',
+      filter: function(list) {
+        return $.map($(list)[0].array, function(result) {
+          return result;
+        });
+      }
+    },
+    dupDetector: function(remoteMatch, localMatch) {
+      return remoteMatch.id === localMatch.id;
     }
   });
 
