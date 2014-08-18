@@ -1,10 +1,10 @@
 Satiisfy::Application.routes.draw do
 
-  if Rails.env.development?
-    # route all requests to the website index (coming soon)
-    get '/' => 'website#index'
-    get '*path' => redirect("/")
-  end
+  # if Rails.env.production?
+  #   # route all requests to the website index (coming soon)
+  #   get '/' => 'website#index'
+  #   get '*path' => redirect("/")
+  # end
 
 
 
