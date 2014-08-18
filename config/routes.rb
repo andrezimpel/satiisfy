@@ -1,5 +1,16 @@
 Satiisfy::Application.routes.draw do
 
+  if Rails.env.development?
+    # route all requests to the website index (coming soon)
+    get '/' => 'website#index'
+    get '*path' => redirect("/")
+  end
+
+
+
+    # ----------------------------------------
+
+
   # project frontend
   scope :constraints => lambda { |request| !Subdomain.match(request) } do
     get "/" => "frontend#index", as: "frontend_index"
@@ -72,7 +83,6 @@ Satiisfy::Application.routes.draw do
 
   root 'projects#index'
 end
-
 
 # ----------------------------------------
 

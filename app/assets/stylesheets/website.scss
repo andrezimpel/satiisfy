@@ -1,0 +1,100 @@
+// colors
+@import "backend/_variables";
+
+// import libs
+@import "bootstrap-sass/lib/bootstrap.scss";
+@import url("//fonts.googleapis.com/css?family=Lato:100,300");
+
+// styling
+body {
+  font-family: "Lato";
+  height: 100%;
+  padding-top: 90px;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+
+  * {
+    cursor: default;
+  }
+}
+
+
+.wrapper {
+  @extend .container;
+}
+.page {
+  @include make-row;
+}
+.content {
+  @include make-sm-column(6);
+  @include make-sm-column-push(3);
+
+  @include make-md-column(4);
+  @include make-md-column-push(4);
+}
+
+// h1, h2, h3 {
+//   @extend .text-center;
+//   // margin-bottom: $space;
+// }
+
+
+
+.hello-air {
+  background: white;
+  bottom: 0;
+  font-weight: 100;
+  left: 0;
+  line-height: 1;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  top: 0;
+}
+.hello-wrapper {
+  display: table;
+  height: 100%;
+  overflow: hidden;
+  margin:auto;
+}
+.hello-text {
+  display: table-cell;
+  vertical-align: middle;
+
+  .id {
+    border-bottom: 1px solid $grey-light;
+    color: $text-color;
+    font-size: 200px;
+    padding-bottom: $space - 13;
+    margin-bottom: $space;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+  .release {
+    color: $grey;
+    font-size: 44px;
+    letter-spacing: 25px;
+    font-weight: 100;
+    text-align: center;
+  }
+}
+
+footer {
+  bottom: 0;
+  color: $grey;
+  left: 0;
+  padding: $space-medium;
+  position: fixed;
+  right: 0;
+  text-align: center;
+}
+
+
+// helper
+.no-letter {
+  letter-spacing: 0;
+}
